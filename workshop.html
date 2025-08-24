@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Division of Data Science and Cyber Security</title>
+    <style>
+    :root {
+        --primary-color: #003366;
+        --secondary-color: #e6a612;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --success-color: #28a745;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    
+    header {
+        background-color: white;
+        color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        height: 50px;
+        width: auto;
+    }
+    
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        margin-left: 1rem;
+    }
+    
+    nav ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+        color: var(--secondary-color);
+    }
+    
+    
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        
+
+    /* Reduced Hero Section */
+    .hero {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+        color: white;
+        padding: 1.5rem 0; /* Reduced from 2rem */
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://www.karunya.edu/sites/default/files/2021-04/datascience-banner.jpg') center/cover no-repeat;
+        opacity: 0.15;
+        z-index: 0;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.6rem; /* Reduced from 1.8rem */
+        margin-bottom: 0.8rem; /* Reduced from 1rem */
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 0.95rem; /* Reduced from 1rem */
+        margin-bottom: 1rem; /* Reduced from 1.5rem */
+        opacity: 0.9;
+    }
+    
+    .event-details {
+        padding: 1.2rem 0; /* Slightly reduced */
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        font-size: 1.1rem; /* Slightly reduced */
+        font-weight: 600;
+        margin: 0 auto;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Enlarged Main Content */
+    .main-content {
+        padding: 3rem 0; /* Increased from 2.5rem */
+    }
+    
+    .section-title {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 2rem; /* Increased from 1.5rem */
+        font-size: 2rem; /* Increased from 1.8rem */
+        text-align: center;
+    }
+    
+    /* Enlarged Table Content */
+    .events-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 3rem; /* Increased from 2.5rem */
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        font-size: 1.1rem; /* Increased from 1rem */
+    }
+    
+    .events-table th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1.1rem; /* Increased from 1rem */
+        text-align: left;
+        font-weight: 500;
+        font-size: 1.15rem; /* Increased from 1.05rem */
+    }
+    
+    .events-table td {
+        padding: 1rem; /* Increased from 0.8rem */
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .events-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .events-table tr:hover {
+        background-color: #f0f0f0;
+    }
+    footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+    
+    /* Tablet and Desktop Styles */
+    @media (min-width: 768px) {
+        .logo {
+            height: 60px;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            font-size: 1rem;
+        }
+        
+        /* Further reduced hero section for larger screens */
+        .hero {
+            padding: 1.8rem 0; /* Reduced from 2.5rem */
+        }
+        
+        .hero h1 {
+            font-size: 1.8rem; /* Reduced from 2.2rem */
+        }
+        
+        .hero p {
+            font-size: 1rem; /* Reduced from 1.1rem */
+        }
+        
+        .event-details {
+            font-size: 1.2rem; /* Reduced from 1.3rem */
+            padding: 1.5rem 0; /* Reduced from 1.8rem */
+        }
+        
+        .footer-content {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        /* Further increased table size for larger screens */
+        .events-table {
+            font-size: 1.15rem; /* Increased from 1.05rem */
+        }
+        
+        .section-title {
+            font-size: 2.2rem; /* Increased from 2rem */
+        }
+    }
+    
+    /* Large Desktop Styles */
+    @media (min-width: 1024px) {
+        /* Further reduced hero section for largest screens */
+        .hero {
+            padding: 2rem 0; /* Reduced from 3rem */
+        }
+        
+        .hero h1 {
+            font-size: 2rem; /* Reduced from 2.5rem */
+        }
+        
+        /* Further increased main content size */
+        .main-content {
+            padding: 3.5rem 0; /* Increased from 3rem */
+        }
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 600px) {
+        .header-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        nav {
+            margin-top: 1rem;
+            width: 100%;
+        }
+        
+        nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0.3rem;
+        }
+        
+        .events-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-size: 1rem; /* Ensure mobile tables are readable */
+        }
+        
+        .event-details {
+            font-size: 1rem; /* Reduced from 1.1rem */
+            padding: 1rem 0; /* Reduced from 1.2rem */
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics</a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities</a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Research</a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">EVENT DETAILS (2024-25)
+            </h1>
+        <table class="events-table">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Lecture Topic</th>
+                    <th>Resource Person</th>
+                    <th>Industry/Institute</th>
+                    <th>Date</th>
+                    <th>Participants</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>How to plan a Career and have a growth strategy in Technology</td>
+                    <td>Mr. Sandeep</td>
+                    <td>Nutanix, Bangalore</td>
+                    <td>30th August 2024</td>
+                    <td>160</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Seminar on the Application security and Ethical Hacking</td>
+                    <td>Mr. Bala Praneeth Reddy</td>
+                    <td>US Bank, North Carolina, USA</td>
+                    <td>27th Feb 2024</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Introduction to Docker</td>
+                    <td>Mr. Sai Bharadwaj Reddy</td>
+                    <td>CISCO, USA</td>
+                    <td>30th July 2024</td>
+                    <td>165</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Industry Expert lecture series</td>
+                    <td>Mr. Tommy Stanek, Mr. Saravana Kumar</td>
+                    <td>GMS, Soft Teams, Chennai</td>
+                    <td>30th Sep 2024</td>
+                    <td>83</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Unlocking Professional Pathways: Matching your skills with career opportunities</td>
+                    <td>Mr. Muthukumaran</td>
+                    <td>CTO, Redintek</td>
+                    <td>26th March 2024</td>
+                    <td>165</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Mastering the Concepts of Cyber Forensics Techniques, Tools, and Real-world Applications</td>
+                    <td>Mr. Sylesh</td>
+                    <td>Senior Manager - DFIR (Digital Forensic and Incident Response)</td>
+                    <td>19th Aug 2024</td>
+                    <td>84</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Technical seminar on Agile mindset & Scrum Framework: Agile Roles and responsibilities in the software industry</td>
+                    <td>Dr. J.K Deepak Keynes</td>
+                    <td>Team Leader, Cognizant Technology Solutions</td>
+                    <td>13th Sep 2024</td>
+                    <td>169</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Hands-on Session on Cyber Forensic Tools</td>
+                    <td>Mr. Sylesh</td>
+                    <td>Senior Manager - DFIR (Digital Forensic and Incident Response)</td>
+                    <td>8th Aug 2024</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Digital Forensics Tools and Investigations</td>
+                    <td>Prof. Amit Kamra</td>
+                    <td>GNDEC Ludhiana</td>
+                    <td>13th March 2024</td>
+                    <td>59</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>IBM Cognos Workshop</td>
+                    <td>Mr. Amit Arya</td>
+                    <td>IBM Data Analytics COE Leader</td>
+                    <td>22nd Feb 2024</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Cybersecurity gaming event "The Deepracer Derby - Capture The Flag (CTF) Event"</td>
+                    <td>Club Coordinators-KITS</td>
+                    <td>KITS</td>
+                    <td>21st Feb 2024</td>
+                    <td>97</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Webinar on Exploring IoT Applications in Cybersecurity and Smart Agriculture</td>
+                    <td>Mr. A. Vignesh</td>
+                    <td>Founder, Agro war Technologies, Salem</td>
+                    <td>12th Nov 2024</td>
+                    <td>186</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty | Data Science and Cyber Security</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .page-title {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .page-title h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        
+        .faculty-container {
+            padding: 3rem 0;
+        }
+        
+        .faculty-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .faculty-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .faculty-image-container {
+            width: 150px;
+            height: 150px;
+            margin: 1.5rem auto 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--secondary-color);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        .faculty-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .faculty-info {
+            padding: 0 1.5rem;
+        }
+        
+        .faculty-name {
+            color: var(--primary-color);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .faculty-position {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .faculty-email {
+            color: #666;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+        
+        .profile-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .profile-btn:hover {
+            background-color: #002244;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .faculty-image-container {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <header>
+        <div class="container header-content">
+            <img src="logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="https://www.karunya.edu/ds">Home</a></li>
+                    <li><a href="https://www.karunya.edu/ds/overview">Overview</a></li>
+                    <li><a href="https://www.karunya.edu/ds/academics">Academics</a></li>
+                    <li><a href="https://www.karunya.edu/ds/faculty">Faculty</a></li>
+                    <li><a href="https://www.karunya.edu/ds/facilities">Facilities</a></li>
+                    <li><a href="https://www.karunya.edu/ds/research">Research</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="page-title">
+        <div class="container">
+            <h1>DIVISION OF DATA SCIENCE AND CYBER SECURITY</h1>
+        </div>
+    </div>
+    
+    <main class="faculty-container container">
+        <div class="faculty-section">
+            <h2 class="section-title">Faculty</h2>
+            <div class="faculty-grid">
+                <!-- HOD -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/img/cst/faculty/GRACE%20MARY%20KANAGA.png" alt="Dr. E. GRACE MARY KANAGA" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. E. GRACE MARY KANAGA</h3>
+                        <p class="faculty-position">PROFESSOR & HOD</p>
+                        <a href="mailto:grace@karunya.edu" class="faculty-email">grace@karunya.edu</a>
+                        <a href="https://www.karunya.edu/img/dscs/Faculty-profile/Grace.pdf" class="profile-btn" target="_blank">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Associate Professor -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/cst/faculty/Faculty-profile/Shamila%20-%20image.png" alt="Dr. A. SHAMILA EBENEZER" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. A. SHAMILA EBENEZER</h3>
+                        <p class="faculty-position">ASSOCIATE PROFESSOR</p>
+                        <a href="mailto:shamila_cse@karunya.edu" class="faculty-email">shamila_cse@karunya.edu</a>
+                        <a href="https://karunya.edu/sites/default/files/img/dscs/profile/Shamila-%20faculty%20profile.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Professor of Practice -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/Joseph.jpg.pagespeed.ce.QxNFRuSLcx.jpg" alt="Mr. Joseph Jeyaranjan N" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mr. Joseph Jeyaranjan N</h3>
+                        <p class="faculty-position">PROFESSOR OF PRACTICE</p>
+                        <a href="mailto:josephjeyaranjan@karunya.edu" class="faculty-email">josephjeyaranjan@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Joseph.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faculty-section">
+            <h2 class="section-title">Assistant Professors</h2>
+            <div class="faculty-grid">
+                <!-- Assistant Professor 1 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/images/vidhya.png" alt="Dr. K.VIDHYA" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. K.VIDHYA</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:vidhyak@karunya.edu" class="faculty-email">vidhyak@karunya.edu</a>
+                        <a href="https://karunya.edu/img/dscs/Faculty-profile/Vidhya.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 2 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/cst/faculty/Faculty-profile/roshini.jpg" alt="Dr. M. ROSHNI THANKA" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. M. ROSHNI THANKA</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:roshni@karunya.edu" class="faculty-email">roshni@karunya.edu</a>
+                        <a href="https://www.karunya.edu/img/dscs/Faculty-profile/Roshni%20.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 3 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="http://karunya.edu/img/cst/faculty/V.%20Ebenezer.jpg" alt="Dr. V. EBENEZER" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. V. EBENEZER</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:ebenezerv@karunya.edu" class="faculty-email">ebenezerv@karunya.edu</a>
+                        <a href="https://www.karunya.edu/img/dscs/Faculty-profile/Ebenezer.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 4 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/cst/faculty/jenefa.png" alt="Dr. A. JENEFA" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. A. JENEFA</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:jenefaa@karunya.edu" class="faculty-email">jenefaa@karunya.edu</a>
+                        <a href="https://karunya.edu/sites/default/files/img/dscs/profile/jenefa-faculty%20profile.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 5 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/cst/faculty/Faculty-profile/3x4Mathu.jpg" alt="Dr. T. MATHU" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. T. MATHU</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:mathu@karunya.edu" class="faculty-email">mathu@karunya.edu</a>
+                        <a href="https://www.karunya.edu/img/dscs/Faculty-profile/Mathu.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 6 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/cst/faculty/BHUVANESWARI.jpeg" alt="Mrs. BHUVANESHWARI" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mrs. BHUVANESHWARI</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:bhuvaneshwari@karunya.edu" class="faculty-email">bhuvaneshwari@karunya.edu</a>
+                        <a href="https://karunya.edu/img/dscs/Faculty-profile/M.Bhuvaneshwari.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 7 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/dscs/profile/Nirmal_profile.jpg" alt="Mr. Nirmal Varghese Babu" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mr. Nirmal Varghese Babu</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:nirmalvarghese@karunya.edu" class="faculty-email">nirmalvarghese@karunya.edu</a>
+                        <a href="https://karunya.edu/sites/default/files/img/dscs/profile/Nirmal%20Varghese%20Babu.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 8 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/dscs/profile/Profile%20pic_Darshika.jpeg" alt="Mrs. A.R. Darshika Kelin" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mrs. A.R. Darshika Kelin</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:darshika@karunya.edu" class="faculty-email">darshika@karunya.edu</a>
+                        <a href="https://karunya.edu/sites/default/files/img/dscs/profile/Faculty_Profile_A.R.%20Darshika%20Kelin.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 9 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/dscs/profile/Antony%20Taurshia.png" alt="Dr. Antony Taurshia" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Dr. Antony Taurshia</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:antonytaurshia@karunya.edu" class="faculty-email">antonytaurshia@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/profile/AntonyTaurshia.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 10 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://karunya.edu/sites/default/files/img/dscs/profile/rahul.jpg" alt="Mr. Rahul R" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mr. Rahul R</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:rahul@karunya.edu" class="faculty-email">rahul@karunya.edu</a>
+                        <a href="https://karunya.edu/sites/default/files/img/dscs/profile/Rahul.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 11 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/Srija.jpg.pagespeed.ce.lhGVGi52pX.jpg" alt="Mrs. J. Srija" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mrs. J. Srija</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:srija@karunya.edu" class="faculty-email">srija@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Srija.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 12 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/Esther.jpg.pagespeed.ce.r7dSm5MQxy.jpg" alt="K. Esther Lipni" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">K. Esther Lipni</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:estherlipni@karunya.edu" class="faculty-email">estherlipni@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Esther.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 13 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/jenisha.png.pagespeed.ce.jqk-AnoiYN.png" alt="Mrs. Jenisha jehan. J" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mrs. Jenisha jehan. J</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:jenisha@karunya.edu" class="faculty-email">jenisha@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Jenisha.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 14 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/divina.png.pagespeed.ce.RBSsTvOUiF.png" alt="Ms. Divina T P" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Ms. Divina T P</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:divina@karunya.edu" class="faculty-email">divina@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Profile%20divina.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+                
+                <!-- Assistant Professor 15 -->
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/sites/default/files/img/dscs/shivanthana.jpg.pagespeed.ce.NewiDt9FHz.jpg" alt="Ms. Shivanthana S" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Ms. Shivanthana S</h3>
+                        <p class="faculty-position">ASSISTANT PROFESSOR</p>
+                        <a href="mailto:shivanthana@karunya.edu" class="faculty-email">shivanthana@karunya.edu</a>
+                        <a href="https://www.karunya.edu/sites/default/files/img/dscs/Faculty%20profile-Shivanthana%20S.pdf" class="profile-btn">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faculty-section">
+            <h2 class="section-title">Administrative Staff</h2>
+            <div class="faculty-grid">
+                <div class="faculty-card">
+                    <div class="faculty-image-container">
+                        <img src="https://www.karunya.edu/img/dscs/faculty/Moses.jpg.pagespeed.ce.h83495DakR.jpg" alt="Mr. G. MOSES DUVISTEN" class="faculty-image">
+                    </div>
+                    <div class="faculty-info">
+                        <h3 class="faculty-name">Mr. G. MOSES DUVISTEN</h3>
+                        <p class="faculty-position">Executive Assistant Gr. II</p>
+                        <a href="mailto:moses@karunya.edu" class="faculty-email">moses@karunya.edu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">Public Self-Disclosure</a></li>
+                        <li><a href="#">Statutory Committees</a></li>
+                        <li><a href="#">MHRD/UGC/AICTE Compliance</a></li>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">AICTE Essential</a></li>
+                        <li><a href="#">Annual Report</a></li>
+                        <li><a href="#">Sustainability Report</a></li>
+                        <li><a href="#">University Policies</a></li>
+                        <li><a href="#">NAAC SSR & DVV Report</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                        <li><a href="#">Digilocker NAD</a></li>
+                        <li><a href="#">RTI</a></li>
+                        <li><a href="#">MoA</a></li>
+                        <li><a href="#">EoC</a></li>
+                        <li><a href="#">MoU</a></li>
+                        <li><a href="#">FDA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">Physical Education</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">Grievance Redressal Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                        <li><a href="#">ICC</a></li>
+                        <li><a href="#">Anti-Ragging</a></li>
+                        <li><a href="#">Accessibility Software</a></li>
+                        <li><a href="#">Karunya Competency Development Centre</a></li>
+                        <li><a href="#">Karunya Technology Business Incubation Park</a></li>
+                        <li><a href="#">Karunya Innovation And Design Studio</a></li>
+                        <li><a href="#">Student Organizations</a></li>
+                        <li><a href="#">IEEE</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>(Toll Free)</strong> 1800 889 9888</p>
+                        <p><strong>(Toll Free)</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p>
+                            Karunya Institute of Technology and Sciences,<br>
+                            (Deemed to be University),<br>
+                            Karunya Nagar,<br>
+                            Coimbatore - 641 114,<br>
+                            Tamil Nadu, India
+                        </p>
+                        <p><a href="#" style="color: var(--secondary-color);">Virtual Tour</a></p>
+                        <p><a href="#" style="color: var(--secondary-color);">Admissions Open 2025 Online MBA</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Division of Data Science and Cyber Security | Karunya Institute of Technology and Sciences</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .project-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+        
+        .project-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .project-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        .project-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .project-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .status-ongoing {
+            color: var(--success-color);
+            font-weight: 500;
+        }
+        
+        .status-completed {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            .project-table {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .project-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="research.html">Research <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">RESEARCH PROJECTS</h1>
+        
+        <table class="project-table">
+            <thead>
+                <tr>
+                    <th>Investigators</th>
+                    <th>Project Title</th>
+                    <th>Funding Agency</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr. Grace Mary Kanaga, Prof. & Head/DSCS<br>
+                        <strong>Co-Investigators:</strong> Dr. Kumudha Raimond, Prof./CSE, Dr. J. Anitha, Assoc/CSE, Dr. Thomas George, Prof. & Head/BME
+                    </td>
+                    <td>Design and development of an adaptive brain computer interface (BCI) based assistive tool for paralytic people</td>
+                    <td>DST-ICPS</td>
+                    <td>3 Years (2019-2022)</td>
+                    <td class="status-completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr D Sujitha Juliet, Assoc Professor/ DSCS<br>
+                        <strong>Co-Investigators:</strong> Dr E Kirubakaran, Professor/CSE
+                    </td>
+                    <td>Development of Industrial Indoor Asset Positioning and Navigation System using Geospatial Analysis and Ultra-Wide Band Technology</td>
+                    <td>DST-NRDMS</td>
+                    <td>2 Years (2020-2022)</td>
+                    <td class="status-completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr Kumudha Raimond, Professor/ CSE<br>
+                        <strong>Co-Investigators:</strong> Dr.Gadudasu Babu Rao, Asst.Professor/ MECH, Dr D.Sujitha Juliet, Assoc.Professor/ DSCS, Dr Kurinji Priya,Consultant -Seesha Karunya Rural Hospital.
+                    </td>
+                    <td>SWASTHYA- Development of Cost Effective Affordable Cervical Cancer Screening Unit based on Smartphone Technology for Rural Population</td>
+                    <td>DST- BDTD</td>
+                    <td>1 Year (2021-2022)</td>
+                    <td class="status-completed">Completed</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr. Grace Mary Kanaga, Prof. & Head/DSCS<br>
+                        <strong>Co-Investigators:</strong> Dr.M.RoshniThanka Asst.Prof/DSCS, Dr.M.S.P.Subathra Prof/ECE
+                    </td>
+                    <td>Smart Wearable Device for Early Prediction and Alerting of Epilepsy in Pre-ictal Phase using Advanced Learning Techniques</td>
+                    <td>IDEAS-TIH, DST</td>
+                    <td>3 Years (2023-2026)</td>
+                    <td class="status-ongoing">Ongoing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr. D. Raveena Judie Dolly, AP-ECE<br>
+                        <strong>Co-Investigators:</strong> Dr. D. Jaganath, AP-ECE, Dr. J. Dinesh Peter, Asso-Prof-CSE
+                    </td>
+                    <td>Voice-Controlled Chair-less Chair Design for Lumbar Pain Reduction</td>
+                    <td>Harvard Medical School, USA</td>
+                    <td>1 Year (2018-2019)</td>
+                    <td class="status-ongoing">Ongoing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr. J. Dinesh Peter, Assoc. Prof/CSE<br>
+                        <strong>Co-Investigators:</strong> Dr. Jeba Veera Singh, AP/CSE
+                    </td>
+                    <td>Single Image Super-Resolution for Smartphone Fundoscopy Images Using Image Content Specific Self-Deep Learning Model</td>
+                    <td>IEI</td>
+                    <td>3 Years (2017-2020)</td>
+                    <td class="status-completed">Completed (11.7.2020)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Ms.M.Bhuvaneshwari Asst.Prof/DSCS, Mr.Nirmal Vargheese Babu
+                    </td>
+                    <td>A portable EEG-based device for early detection of alcohol addiction</td>
+                    <td>Karunya Short-Term Research Grant (KSTRG)</td>
+                    <td>6 months (2024)</td>
+                    <td class="status-ongoing">Ongoing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr.K.Vidhya
+                    </td>
+                    <td>A Cognitive Tracking System for Classroom Engagement</td>
+                    <td>Karunya Short-Term Research Grant (KSTRG)</td>
+                    <td>3 months (2024)</td>
+                    <td class="status-ongoing">Ongoing</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Principal Investigator:</strong> Dr.A.Shamila Ebenezer Assoc.Prof/DSCS
+                    </td>
+                    <td>Development of cognitive IoT application for diagnosis of depression in students and treatment using CBT chatbot</td>
+                    <td>ICMR</td>
+                    <td>3 Years (2022-2025)</td>
+                    <td class="status-ongoing">Ongoing</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+     <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placements | Division of Data Science and Cyber Security | Karunya Institute of Technology and Sciences</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stats-container.compact {
+    display: flex;
+    gap: 20px;  /* Reduced from typical 30-40px */
+    justify-content: center;
+    padding: 10px;
+}
+
+.stat-box {
+    min-width: 100px;  /* Reduced minimum width */
+    padding: 12px 15px;  /* Reduced padding */
+    border-radius: 8px;
+    background: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;  /* Slightly smaller */
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;  /* Reduced spacing */
+}
+
+.stat-label {
+    font-size: 0.8rem;  /* Smaller label */
+    color: #7f8c8d;
+}
+        
+        .table-container {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .placements-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+        
+        .placements-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .placements-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .placements-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .placements-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .assessment-year {
+            text-align: center;
+            font-style: italic;
+            margin: 1rem 0;
+            color: var(--dark-color);
+        }
+        
+        .recruiters-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .recruiters-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .recruiter-logo {
+            width: 120px;
+            height: 60px;
+            object-fit: contain;
+            padding: 0.5rem;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+       
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .placements-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="research.html">Research <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">PLACEMENT RECORDS </h1>
+            
+            <div class="stats-container compact">
+    <div class="stat-box">
+        <div class="stat-number">92</div>
+        <div class="stat-label">Offers</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-number">24 LPA</div>
+        <div class="stat-label">Highest Package</div>
+    </div>
+</div>
+                
+                <div class="table-container">
+                    <div class="assessment-year">Assessment Year: 2020-24</div>
+                    <table class="placements-table">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Reg No</th>
+                                <th>Name</th>
+                                <th>Company</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Student placement data rows -->
+                            <tr>
+                                <td>1</td>
+                                <td>URK20AI1001</td>
+                                <td>JAMANDLAMUDI SAHIT</td>
+                                <td>Sureti Insurance Marketing Pvt. Ltd.</td>
+                            </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>URK20AI1002</td>
+                            <td>AKASH RAJ</td>
+                            <td>Mount Carmel Public School</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>URK20AI1004</td>
+                            <td>NAVIN ANAND P</td>
+                            <td>Skills and Brains</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>URK20AI1005</td>
+                            <td>JOSEPH FRANKLIN S</td>
+                            <td>Deloitte</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>URK20AI1006</td>
+                            <td>NIRANJAN S</td>
+                            <td>EdVedha</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>URK20AI1007</td>
+                            <td>ASHWIN SOLDEV SINGH P R</td>
+                            <td>Sureti Insurance</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>URK20AI1008</td>
+                            <td>ARIHARAN M</td>
+                            <td>Sureti Insurance</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>URK20AI1009</td>
+                            <td>CALEB STEPHEN</td>
+                            <td>Zuro AI Inc.</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>URK20AI1010</td>
+                            <td>CRAIG ANDREW</td>
+                            <td>Out Media Tech</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>URK20AI1013</td>
+                            <td>MOHAMED ASHIF H</td>
+                            <td>Mindgraph Technologies</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>URK20AI1014</td>
+                            <td>MACWIN GODSON C</td>
+                            <td>TCS</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>URK20AI1015</td>
+                            <td>RICHIE SURESH KOSHY</td>
+                            <td>Cisco</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>URK20AI1016</td>
+                            <td>JESSICA JANE ROBINSON</td>
+                            <td>All people church bangalore</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>URK20AI1017</td>
+                            <td>ASHIK S S</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>URK20AI1018</td>
+                            <td>SHARON EVANGELINE M</td>
+                            <td>EdVedha</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>URK20AI1020</td>
+                            <td>PRASHANT SRINIVASAN SARKAR</td>
+                            <td>MetatronicMind</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>URK20AI1021</td>
+                            <td>ISRAEL NIXON S</td>
+                            <td>Sureti Insurance</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>URK20AI1022</td>
+                            <td>DHIVINKUMAR A J</td>
+                            <td>Aalam</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>URK20AI1023</td>
+                            <td>SABESH JACKS SIVA S</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>URK20AI1024</td>
+                            <td>SAMSON JEBARAJ P</td>
+                            <td>UST Global</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>URK20AI1025</td>
+                            <td>RUFUS RENO J</td>
+                            <td>JAS Packages</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>URK20AI1026</td>
+                            <td>MARSHAL S</td>
+                            <td>Sureti Insurance</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>URK20AI1027</td>
+                            <td>GIBIN K JAYAN</td>
+                            <td>The Archery Solutions</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>URK20AI1028</td>
+                            <td>METHA SHANKAR G A</td>
+                            <td>Sureti Insurance</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>URK20AI1029</td>
+                            <td>ROGAN RAJ C</td>
+                            <td>UST Global</td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td>URK20AI1030</td>
+                            <td>A MICHEL ASHICK</td>
+                            <td>Sterling Software</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>URK20AI1032</td>
+                            <td>IRAIYANBU K</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>URK20AI1033</td>
+                            <td>JESICA J</td>
+                            <td>OMG</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>URK20AI1034</td>
+                            <td>K DELINAH ANGELIN</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>URK20AI1035</td>
+                            <td>DENNIS HERAALD V</td>
+                            <td>Arkadia Global</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>URK20AI1036</td>
+                            <td>ROSHAN J</td>
+                            <td>Skills and Brains</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>URK20AI1037</td>
+                            <td>P J ANNVIL PRINCE</td>
+                            <td>Shalom International</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>URK20AI1038</td>
+                            <td>JOEL MATHEW</td>
+                            <td>Tamarisk</td>
+                        </tr>
+                        <tr>
+                            <td>34</td>
+                            <td>URK20AI1039</td>
+                            <td>JENISHA J</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>URK20AI1041</td>
+                            <td>ISAAC RITHARSON P</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td>URK20AI1042</td>
+                            <td>HRITHICK V S</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>37</td>
+                            <td>URK20AI1043</td>
+                            <td>SRI RAM M S</td>
+                            <td>Techolution</td>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>URK20AI1044</td>
+                            <td>DHAVASAKTHI S</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>39</td>
+                            <td>URK20AI1045</td>
+                            <td>DAKSHNAKUMAR G S</td>
+                            <td>Skolar</td>
+                        </tr>
+                        <tr>
+                            <td>40</td>
+                            <td>URK20AI1047</td>
+                            <td>JADDA MIDHUN</td>
+                            <td>The Archery Solutions</td>
+                        </tr>
+                        <tr>
+                            <td>41</td>
+                            <td>URK20AI1048</td>
+                            <td>VIJAY ANAND S S</td>
+                            <td>Arkadia</td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>URK20AI1049</td>
+                            <td>KOMMUGURI RICHARD HARRY BROWN</td>
+                            <td>Aries Soft Solutios</td>
+                        </tr>
+                        <tr>
+                            <td>43</td>
+                            <td>URK20AI1050</td>
+                            <td>MERRIN SANCIA S</td>
+                            <td>Coapps</td>
+                        </tr>
+                        <tr>
+                            <td>44</td>
+                            <td>URK20AI1051</td>
+                            <td>LEKA SHREE J</td>
+                            <td>TCS</td>
+                        </tr>
+                        <tr>
+                            <td>45</td>
+                            <td>URK20AI1052</td>
+                            <td>BIJITH BABUJI CHARUVILAYIL</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>URK20AI1053</td>
+                            <td>SONA AJAY C</td>
+                            <td>Quantiphi</td>
+                        </tr>
+                        <tr>
+                            <td>47</td>
+                            <td>URK20AI1054</td>
+                            <td>RESHMA SHREE S</td>
+                            <td>AppSentinals</td>
+                        </tr>
+                        <tr>
+                            <td>48</td>
+                            <td>URK20AI1055</td>
+                            <td>DHARSHINI M</td>
+                            <td>Coapps</td>
+                        </tr>
+                        <tr>
+                            <td>49</td>
+                            <td>URK20AI1056</td>
+                            <td>ARAVIND SIDHARTH B G</td>
+                            <td>EdiGlobe, Banglore</td>
+                        </tr>
+                        <tr>
+                            <td>50</td>
+                            <td>URK20AI1057</td>
+                            <td>RAYAVARAPU MANOHAR</td>
+                            <td>Skolar</td>
+                        </tr>
+                        <tr>
+                            <td>51</td>
+                            <td>URK20AI1058</td>
+                            <td>LAYA N</td>
+                            <td>Deloitte</td>
+                        </tr>
+                        <tr>
+                            <td>52</td>
+                            <td>URK20AI1059</td>
+                            <td>SNEHA VALENTINA J</td>
+                            <td>Accenture</td>
+                        </tr>
+                        <tr>
+                            <td>53</td>
+                            <td>URK20AI1060</td>
+                            <td>BANDI PRAVEEN</td>
+                            <td>FACE Prep</td>
+                        </tr>
+                        <tr>
+                            <td>54</td>
+                            <td>URK20AI1061</td>
+                            <td>JOSHUA CECIL L</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>55</td>
+                            <td>ULK20AI1001</td>
+                            <td>KARTHIKEYAN I</td>
+                            <td>UST</td>
+                        </tr>
+                        <tr>
+                            <td>56</td>
+                            <td>ULK20AI1002</td>
+                            <td>SHREE HARI B</td>
+                            <td>Skolar</td>
+                        </tr>
+                        <tr>
+                            <td>57</td>
+                            <td>URK20CO1001</td>
+                            <td>AGNES JOYCE A</td>
+                            <td>Haridra</td>
+                        </tr>
+                        <tr>
+                            <td>58</td>
+                            <td>URK20CO1002</td>
+                            <td>PRAISY MIZPAH JULIA BESTUS</td>
+                            <td>Anker Cloud</td>
+                        </tr>
+                        <tr>
+                            <td>59</td>
+                            <td>URK20CO1005</td>
+                            <td>TRILOCHAN V R</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>60</td>
+                            <td>URK20CO1006</td>
+                            <td>GILDA GEORGE</td>
+                            <td>Globosoft</td>
+                        </tr>
+                        <tr>
+                            <td>61</td>
+                            <td>URK20CO1008</td>
+                            <td>BLESSING JOHN</td>
+                            <td>Jesus Calls</td>
+                        </tr>
+                        <tr>
+                            <td>62</td>
+                            <td>URK20CO1009</td>
+                            <td>NITHYASRI P</td>
+                            <td>Inteligence Technologies</td>
+                        </tr>
+                        <tr>
+                            <td>63</td>
+                            <td>URK20CO1011</td>
+                            <td>ARUN.K.A</td>
+                            <td>CHT Health Care</td>
+                        </tr>
+                        <tr>
+                            <td>64</td>
+                            <td>URK20CO1013</td>
+                            <td>REBECCA ALBERT</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>65</td>
+                            <td>URK20CO1014</td>
+                            <td>SAMUEL PRABAKARAN M</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>66</td>
+                            <td>URK20CO1015</td>
+                            <td>HEMANTHKUMAR P B</td>
+                            <td>AppSentinals</td>
+                        </tr>
+                        <tr>
+                            <td>67</td>
+                            <td>URK20CO1017</td>
+                            <td>ASHITHA SANDRIN A</td>
+                            <td>Coapps</td>
+                        </tr>
+                        <tr>
+                            <td>68</td>
+                            <td>URK20CO1018</td>
+                            <td>PERCIVAL JACOB HENDERSON</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>69</td>
+                            <td>URK20CO1019</td>
+                            <td>N ADITHYA EASWER</td>
+                            <td>Face Prep</td>
+                        </tr>
+                        <tr>
+                            <td>70</td>
+                            <td>URK20CO1020</td>
+                            <td>PRAVEEN S</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>71</td>
+                            <td>URK20CO1021</td>
+                            <td>MUHAMMED YASEER P</td>
+                            <td>India Tech Industry</td>
+                        </tr>
+                        <tr>
+                            <td>72</td>
+                            <td>URK20CO1022</td>
+                            <td>CHIDAMBARAM A</td>
+                            <td>AALAM</td>
+                        </tr>
+                        <tr>
+                            <td>73</td>
+                            <td>URK20CO1023</td>
+                            <td>RONALD C DANIEL</td>
+                            <td>Accenture</td>
+                        </tr>
+                        <tr>
+                            <td>74</td>
+                            <td>URK20CO1024</td>
+                            <td>YAKUBRAJ M</td>
+                            <td>Jesus Calls</td>
+                        </tr>
+                        <tr>
+                            <td>75</td>
+                            <td>URK20CO1025</td>
+                            <td>GURUNISHAL</td>
+                            <td>Face Prep</td>
+                        </tr>
+                        <tr>
+                            <td>76</td>
+                            <td>URK20CO1027</td>
+                            <td>THIRUMAL REDDY VARSHITH REDDY</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>77</td>
+                            <td>URK20CO1028</td>
+                            <td>J G ABYLIN JOHNSON</td>
+                            <td>Crossbows</td>
+                        </tr>
+                        <tr>
+                            <td>78</td>
+                            <td>URK20CO1031</td>
+                            <td>DHANUSH K B</td>
+                            <td>India Tech Industry</td>
+                        </tr>
+                        <tr>
+                            <td>79</td>
+                            <td>URK20CO1032</td>
+                            <td>KALAPURAM MANASWITHA</td>
+                            <td>Haridra</td>
+                        </tr>
+                        <tr>
+                            <td>80</td>
+                            <td>URK20CO1033</td>
+                            <td>KRISHNA RAJ MU</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>81</td>
+                            <td>URK20CO1034</td>
+                            <td>DIDDIKUNTA MAHESH</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>82</td>
+                            <td>URK20CO1036</td>
+                            <td>POOJA L</td>
+                            <td>Federal Bank</td>
+                        </tr>
+                        <tr>
+                            <td>83</td>
+                            <td>URK20CO1037</td>
+                            <td>NAVEEN RAJAN P</td>
+                            <td>HRH Next</td>
+                        </tr>
+                        <tr>
+                            <td>84</td>
+                            <td>URK20CO1038</td>
+                            <td>SHREEKAR REDDY ANIREDDY</td>
+                            <td>Bi3 Technologies</td>
+                        </tr>
+                        <tr>
+                            <td>85</td>
+                            <td>URK20CO1039</td>
+                            <td>NITHISH M</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>86</td>
+                            <td>URK20CO1041</td>
+                            <td>HARISH SREE PRASANNA KUMAR D</td>
+                            <td>Sureti</td>
+                        </tr>
+                        <tr>
+                            <td>87</td>
+                            <td>URK20CO1042</td>
+                            <td>A ABHINAVA REDDY</td>
+                            <td>Intellipat</td>
+                        </tr>
+                        <tr>
+                            <td>88</td>
+                            <td>URK20CO1043</td>
+                            <td>PARI PUGAZH M</td>
+                            <td>ZOHO</td>
+                        </tr>
+                        <tr>
+                            <td>89</td>
+                            <td>URK20CO1045</td>
+                            <td>AMARLAPUDI AJAY KUMAR</td>
+                            <td>Skolar</td>
+                        </tr>
+                        <tr>
+                            <td>90</td>
+                            <td>URK20CO1046</td>
+                            <td>DHANUSH M</td>
+                            <td>SIGN25</td>
+                        </tr>
+                        <tr>
+                            <td>91</td>
+                            <td>URK20CO1048</td>
+                            <td>MARY SHREYA</td>
+                            <td>KGIS</td>
+                        </tr>
+                        <tr>
+                            <td>92</td>
+                            <td>URK20CO1049</td>
+                            <td>ABEL JASON ROY MATTA</td>
+                            <td>KGIS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

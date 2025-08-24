@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Awards | Division of Data Science and Cyber Security</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        /* Compact Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 1.5rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .awards-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+        
+        .awards-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        .awards-table td {
+            padding: 0.6rem 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        .awards-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .awards-table tr:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .year-heading {
+            background-color: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+            padding: 0.5rem;
+            margin: 1.5rem 0 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+        
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .awards-table {
+                font-size: 0.95rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav {
+                margin-top: 1rem;
+                width: 100%;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.3rem;
+            }
+            
+            .awards-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="research.html">Research <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content container">
+        <h2 class="section-title">Faculty Awards</h2>
+        
+        <div class="year-heading">2016-17</div>
+        <table class="awards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Month/Year</th>
+                    <th>Award</th>
+                    <th>Awarding Agency</th>
+                    <th>Incentive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mrs. Shamila Ebenezer A</td>
+                    <td>Assistant Professor</td>
+                    <td>Jul-16</td>
+                    <td>EMC2 Academic Associate- Data Science and Big Data Analytics</td>
+                    <td>ICT Academy</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.E.Grace Mary Kanaga</td>
+                    <td>Associate Professor</td>
+                    <td>Aug-16</td>
+                    <td>Innovative Professional Award</td>
+                    <td>Society of Professional Engineers</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Dr. E. Grace Mary Kanaga</td>
+                    <td>Associate Professor</td>
+                    <td>2017</td>
+                    <td>National Young Leaders Programme Award for outstanding contribution of community service through NSS</td>
+                    <td>Government of India - Ministry of Youth Affairs and Sports – NSS</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.K.Ramalakshmi</td>
+                    <td>Assistant Professor</td>
+                    <td>2016-17</td>
+                    <td>BEST ACCREDITED STUDENT BRANCH AWARD</td>
+                    <td>CSI Annual convention 2016-17</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.K.Ramalakshmi</td>
+                    <td>Assistant Professor</td>
+                    <td>2016-17</td>
+                    <td>LONGEST CONTINUOUS SBC AWARD</td>
+                    <td>CSI Annual convention 2016-17</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.K.Ramalakshmi</td>
+                    <td>Assistant Professor</td>
+                    <td>2016-17</td>
+                    <td>HIGHEST SPONSORSHIP OF CSI EVENTS AWARD</td>
+                    <td>CSI Annual convention 2016-17</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr.Belfin R V</td>
+                    <td>Assistant Professor</td>
+                    <td>2016</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2017</td>
+                    <td>Young Woman Educator & Scholar Award in 4th Women's Day Awards '2017</td>
+                    <td>National Foundation for Entrepreneurship Development (NFED)</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>2017</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>S. Jeba Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>July 2016</td>
+                    <td>EMC2 Academic Associate- Data Science and Big Data Analytics</td>
+                    <td>EMC2 Academic</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr.V.M.Arul Xavier</td>
+                    <td>Assistant Professor</td>
+                    <td>May 2017</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mrs. Anitha Christy</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2017</td>
+                    <td>National Young Leaders Programme Award for outstanding contribution of community service through NSS</td>
+                    <td>Government of India - Ministry of Youth Affairs and Sports – NSS</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr. Iwin</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2017</td>
+                    <td>National Young Leaders Programme Award for outstanding contribution of community service through NSS</td>
+                    <td>Government of India - Ministry of Youth Affairs and Sports – NSS</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr. Belfin</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2017</td>
+                    <td>National Young Leaders Programme Award for outstanding contribution of community service through NSS</td>
+                    <td>Government of India - Ministry of Youth Affairs and Sports – NSS</td>
+                    <td>National Certificate</td>
+                </tr>
+                <tr>
+                    <td>BASIL XAVIER</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2017</td>
+                    <td>National Young Leaders Programme Award for outstanding contribution of community service through NSS</td>
+                    <td>Government of India - Ministry of Youth Affairs and Sports NSS</td>
+                    <td>National Certificate</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="year-heading">2017-18</div>
+        <table class="awards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Month/Year</th>
+                    <th>Award</th>
+                    <th>Awarding Agency</th>
+                    <th>Incentive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mrs. M. Roshni Thanka</td>
+                    <td>Assistant Professor</td>
+                    <td>Sep-17</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.E.Grace Mary Kanaga</td>
+                    <td>Associate Professor</td>
+                    <td>May-18</td>
+                    <td>Recognition and appreciation for outstanding service in technical program committee in 3rd international conference on Information, communication and computing technology in collaboration with Springer and CSI</td>
+                    <td>Springer</td>
+                    <td>Active reviewer</td>
+                </tr>
+                <tr>
+                    <td>Dr.J.Immanuel John Raja</td>
+                    <td>Associate Professor</td>
+                    <td>2017</td>
+                    <td>Advanced Level Instructor</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.J.Immanuel John Raja</td>
+                    <td>Associate Professor</td>
+                    <td>2017</td>
+                    <td>CISCO Networking academy - 10 years of active service</td>
+                    <td>CISCO Networking academy</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.Kumudha Raimond</td>
+                    <td>Professor</td>
+                    <td>Dec 2017</td>
+                    <td>Coordinator for conducting Urban lab under Indo-German Smart Initiative organized by KITS and Technical University, Berlin</td>
+                    <td>KITS</td>
+                    <td>Appreciation Letter</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>July, 2017</td>
+                    <td>Best paper award in IEEE International conference on Signal processing and Communication</td>
+                    <td>KITS</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Ms.I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>Dec 2017</td>
+                    <td>Cisco Certified Entry Networking Technician [CCENT]</td>
+                    <td>Cisco</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mrs. M. Roshni Thanka</td>
+                    <td>Assistant Professor</td>
+                    <td>September 2017</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mrs.Anitha Christy</td>
+                    <td>Assistant Professor</td>
+                    <td>September 2017</td>
+                    <td>BRONZE partner faculty under Inspire - The Campus Connect Faculty Partnership Model</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Ms.I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>Sep 2017</td>
+                    <td>Best poster award for the title "Traffic Engineering software Defined Networks"</td>
+                    <td>KITS</td>
+                    <td>Best poster award</td>
+                </tr>
+                <tr>
+                    <td>Dr. S.Salaja</td>
+                    <td>Associate Professor</td>
+                    <td>September 2017</td>
+                    <td>"Best Poster", titled "Service Selection Frameworks for Pervasive and Cloud Computing"</td>
+                    <td>KITS</td>
+                    <td>Best Poster</td>
+                </tr>
+                <tr>
+                    <td>Ms.T.Jemima Jebaseeli</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2018</td>
+                    <td>Outstanding contribution in reviewing in Elsevier Journal</td>
+                    <td>Elsevier Journal: Computers and Electrical Engineering</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Ms.T.Jemima Jebaseeli</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2018</td>
+                    <td>Received award for outstanding contribution in reviewing in Elsevier Journal: Computers and Electrical Engineering</td>
+                    <td>Elsevier Journal: Computers and Electrical Engineering</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>S. Jeba Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>February 2018</td>
+                    <td>Python 101 for Data Science - Cognitive class.ai</td>
+                    <td>IBM</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr. BL RadhaKrishnan</td>
+                    <td>Assistant Professor</td>
+                    <td>Oct 2017</td>
+                    <td>SUSE Certified OpenStack Cloud Administrator</td>
+                    <td>SUSE</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Ms.T.Jemima Jebaseeli</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2018</td>
+                    <td>Received award for outstanding contribution in reviewing in Elsevier Journal: Computers and Electrical Engineering</td>
+                    <td>Elsevier Journal: Computers and Electrical Engineering</td>
+                    <td>Research Recognition</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="year-heading">2018-19</div>
+        <table class="awards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Month/Year</th>
+                    <th>Award</th>
+                    <th>Awarding Agency</th>
+                    <th>Incentive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr.J.Immanuel John Raja</td>
+                    <td>Associate Professor</td>
+                    <td>2018</td>
+                    <td>Advanced Level Instructor</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Jebaveerasingh J</td>
+                    <td>Assistant Professor</td>
+                    <td>August 2018</td>
+                    <td>Recognition of publication in IEI-Epitome</td>
+                    <td>The Institution of Engineers (India)</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Mrs.S.Akila Agnes</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan-Mar 2019</td>
+                    <td>Data science for engineers [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Sujitha Juliet</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2019</td>
+                    <td>SWAYAM-NPTEL online course on 'Machine Learning' during Jan-April 2019</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Dinesh Peter</td>
+                    <td>Associate Professor</td>
+                    <td>Aug 2018</td>
+                    <td>Travel Grant, SERB, Financial Assistance for participating in "21st International Conference On Medical Image Computing & Computer Assisted Intervention, Spain"</td>
+                    <td>SERB</td>
+                    <td>Travel Grant</td>
+                </tr>
+                <tr>
+                    <td>Mr. BL RadhaKrishnan</td>
+                    <td>Assistant Professor</td>
+                    <td>Apr 2019</td>
+                    <td>SUSE Certified Engineer</td>
+                    <td>SUSE</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr. BL RadhaKrishnan</td>
+                    <td>Assistant Professor</td>
+                    <td>Apr 2019</td>
+                    <td>SUSE Certified Administrator</td>
+                    <td>SUSE</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.Priyadarsini.C</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan-April 2019</td>
+                    <td>NPTEL - Introduction to IoT [Elite + Gold]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Ms.I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan - April 2019</td>
+                    <td>NPTEL - Introduction to IoT [Elite + Gold]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr. P. Getzi Jeba</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan-Apr 2019</td>
+                    <td>NPTEL - Introduction to IoT [Elite + Gold]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2019</td>
+                    <td>NPTEL - Problem Solving through Programming in C [Elite + Silver] with topper 2%</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2019</td>
+                    <td>Best Paper Award in 2nd International Conference on Signal Processing and Communication, 2019.</td>
+                    <td>KITS</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>M. Roshni Thanka</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan-April 2019</td>
+                    <td>NPTEL- Programming in Java [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mrs. Rexie</td>
+                    <td>Assistant Professor</td>
+                    <td>Mar 2019</td>
+                    <td>NPTEL - Data Science for Engineers [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mrs.S.Durga</td>
+                    <td>Assistant Professor</td>
+                    <td>Apr 2019</td>
+                    <td>Cloud Computing [Elite Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mr.Belfin R V</td>
+                    <td>Assistant Professor</td>
+                    <td>May 2019</td>
+                    <td>Outstanding Achiever Award - Achiever of the year in teaching and research</td>
+                    <td>International conference ICIAST-NUS Singapore</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Mr. J. Andrew</td>
+                    <td>Assistant Professor</td>
+                    <td>Mar 2019</td>
+                    <td>Best Paper Award in 5th International Conference on Advanced Computing & Communication Systems (ICACCS)</td>
+                    <td>Sri Eshwar College of Engineering, Coimbatore</td>
+                    <td>Best Paper Award</td>
+                </tr>
+                <tr>
+                    <td>Mr.J.Andrew</td>
+                    <td>Assistant Professor</td>
+                    <td>Mar 2019</td>
+                    <td>NPTEL - Privacy and Security in online Social Media [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Ms.T.Jemima Jebaseeli</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan 2019</td>
+                    <td>Article is listed as the top most 90 downloads in Computers and Electrical Engineering (Elsevier) Journal for the Journal paper -Segmentation of Retinal blood Vessels from Ophthalmologic Diabetic Retinopathy Images</td>
+                    <td>Computers and Electrical Engineering 73, 245–258, 2019. [Publisher: Elsevier, Impact Factor: 2.189]</td>
+                    <td>Research Recognition</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="year-heading">2019-20</div>
+        <table class="awards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Month/Year</th>
+                    <th>Award</th>
+                    <th>Awarding Agency</th>
+                    <th>Incentive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mrs.S.Durga</td>
+                    <td>Assistant Professor</td>
+                    <td>July-Oct 2019</td>
+                    <td>Introduction to Internet of Things [Elite Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>September 2019</td>
+                    <td>Python for data science [Elite + Silver with topper 5%]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr. J. Anitha</td>
+                    <td>Assistant Professor</td>
+                    <td>October 2019</td>
+                    <td>Introduction to Internet of Things [Silver with topper 5%]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mrs.S.Akila Agnes</td>
+                    <td>Assistant Professor</td>
+                    <td>Aug-Sep 2019</td>
+                    <td>Python for data science [Elite + Silver with topper 5%]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr.Ramakrishna Seemakurti</td>
+                    <td>Associate Professor</td>
+                    <td>Aug-Sep 2019</td>
+                    <td>Introduction to Internet of Things [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr.J .Jebaveerasingh</td>
+                    <td>Assistant Professor</td>
+                    <td>Oct 2019</td>
+                    <td>Introduction to Internet of Things [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mr.V.M.Arul Xavier</td>
+                    <td>Assistant Professor</td>
+                    <td>July - Oct , 2019</td>
+                    <td>The Joy of computing using python [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Dr.Priyadarsini.C</td>
+                    <td>Assistant Professor</td>
+                    <td>May 2020</td>
+                    <td>A+ Grade Faculty Enabled Programme through INFYTQ platform</td>
+                    <td>INFOSYS</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Mr. V. Ebenezer</td>
+                    <td>Assistant Professor</td>
+                    <td>Jul-Oct 2019</td>
+                    <td>Introduction to Internet of Things [Elite + Silver]</td>
+                    <td>NPTEL</td>
+                    <td>Online Course</td>
+                </tr>
+                <tr>
+                    <td>Ms.T.Jemima Jebaseeli</td>
+                    <td>Assistant Professor</td>
+                    <td>October 2019</td>
+                    <td>Received MatLab Central's file exchange badges awarded for First Submission, First Review, Personal Best Downloads Level-2, and 5-Star Galaxy Level-1 for the contribution in Mathworks</td>
+                    <td>MathWorks Profile</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Jebaveerasingh J</td>
+                    <td>Assistant Professor</td>
+                    <td>October 2019</td>
+                    <td>Recognition of publication in IEI-Epitome</td>
+                    <td>The Institution of Engineers (India)</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Arul Xavier V M</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2020</td>
+                    <td>Coursera - Recognition - Programming for Everybody (Getting Started with Python)</td>
+                    <td>University of Michigan</td>
+                    <td>Online course Certificate</td>
+                </tr>
+                <tr>
+                    <td>Arul Xavier V M</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2020</td>
+                    <td>Coursera - Recognition - Python Data Structures</td>
+                    <td>University of Michigan</td>
+                    <td>Online course Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.Kumudha Raimond</td>
+                    <td>Professor</td>
+                    <td>Nov 2019</td>
+                    <td>Travel Grant - Karunya-Israel Research Fellowship amount of Rs.2,50000</td>
+                    <td>KITS</td>
+                    <td>Travel Grant</td>
+                </tr>
+                <tr>
+                    <td>Dr.Kumudha Raimond</td>
+                    <td>Professor</td>
+                    <td>Jan 2020</td>
+                    <td>Travel Grant- DST-WTI Project presentation at Delhi, Jan 2020, Rs.14,555</td>
+                    <td>KITS</td>
+                    <td>Travel Grant- DST-WTI</td>
+                </tr>
+                <tr>
+                    <td>Sujitha Juliet</td>
+                    <td>Assistant Professor</td>
+                    <td>Jul-Oct 2019</td>
+                    <td>SWAYAM-NPTEL online course on 'Introduction to IOT' during July –Nov 2019</td>
+                    <td>NPTEL</td>
+                    <td>Online course Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mythily M</td>
+                    <td>Assistant Professor</td>
+                    <td>Nov 2019</td>
+                    <td>Machine Learning A-Z</td>
+                    <td>Udemy</td>
+                    <td>Online course Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mythily M</td>
+                    <td>Assistant Professor</td>
+                    <td>Jul -Oct 2019</td>
+                    <td>NPTEL-Problem solving through programming in C</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mr. BL RadhaKrishnan</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2020</td>
+                    <td>Google Certified Associate Cloud Engineer</td>
+                    <td>Google</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.J.Immanuel John Raja</td>
+                    <td>Associate Professor</td>
+                    <td>2020</td>
+                    <td>Active instructor</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Mrs. Jeba Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>March 2020</td>
+                    <td>Best paper award in 5th international Conference on devices, Circuits and systems, Karunya Institute of technology and Sciences on the paper, Improving the Prediction accuracy of Parkinson's disease based on pattern techniques.</td>
+                    <td>KITS</td>
+                    <td>Best paper award</td>
+                </tr>
+                <tr>
+                    <td>Mr.Shibin David</td>
+                    <td>Assistant Professor</td>
+                    <td>April 2020</td>
+                    <td>Reward of 800 USD for the acceptance of the research article.</td>
+                    <td>IEC Science</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>Mr.Shibin David</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan 2020</td>
+                    <td>CISCO Cyber Security Professional</td>
+                    <td>CISCO networking academy</td>
+                    <td>Research Recognition</td>
+                </tr>
+                <tr>
+                    <td>I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>June 2020</td>
+                    <td>Course on NDG Linux Essential</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>May 2020</td>
+                    <td>FDP on Python Programming through INFYTQ Platform</td>
+                    <td>Infosys Campus Connect</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr. E. Kirubakaran</td>
+                    <td>Professor</td>
+                    <td>May 2020</td>
+                    <td>Internal Quality Assurance cell, Certificate of Appreciation</td>
+                    <td>Jamal Mohamed College, Tiruchirappalli-620020</td>
+                    <td>Certificate of Appreciation</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="year-heading">2020-2021</div>
+        <table class="awards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Designation</th>
+                    <th>Month/Year</th>
+                    <th>Award</th>
+                    <th>Awarding Agency</th>
+                    <th>Incentive</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dr. J. Immanuel JohnRaja</td>
+                    <td>Associate Professor</td>
+                    <td>July 2020</td>
+                    <td>Advanced Level Instructor</td>
+                    <td>CISCO Networking Academy</td>
+                    <td>Industry Certificate</td>
+                </tr>
+                <tr>
+                    <td>I.Deva Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>February 2021</td>
+                    <td>Best paper award in International Conference of Congress on Intelligent Systems</td>
+                    <td>Soft Computing Research Society</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>DR.R.Sabitha</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan - Feb 2021</td>
+                    <td>NPTEL Elite Certificate for the Course "Python for DataScience"</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr.. M. Roshni Thanka</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan - Feb 2021</td>
+                    <td>NPTEL Elite Certificate for the Course "Python for DataScience"</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>S. Jeba Priya</td>
+                    <td>Assistant Professor</td>
+                    <td>2021</td>
+                    <td>NPTEL Certificate for the Course "Python for DataScience"</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr. Immanuel Johnraja</td>
+                    <td>Associate Professor</td>
+                    <td>April 2021</td>
+                    <td>Active Instructor in Cisco Academy Program</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Appreciation</td>
+                </tr>
+                <tr>
+                    <td>Dr. Immanuel Johnraja</td>
+                    <td>Associate Professor</td>
+                    <td>December 2020</td>
+                    <td>Course on Introduction to Cybersecurity</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Course Completion</td>
+                </tr>
+                <tr>
+                    <td>Dr. Immanuel Johnraja</td>
+                    <td>Associate Professor</td>
+                    <td>December 2020</td>
+                    <td>Course on Cybersecurity Essential</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Course Completion</td>
+                </tr>
+                <tr>
+                    <td>Dr. Immanuel Johnraja</td>
+                    <td>Associate Professor</td>
+                    <td>December 2020</td>
+                    <td>Course on Networking Essentials</td>
+                    <td>Cisco Networking Academy</td>
+                    <td>Course Completion</td>
+                </tr>
+                <tr>
+                    <td>Dr Sujitha Juliet</td>
+                    <td>Asst Professor</td>
+                    <td>Sep-Dec 2020</td>
+                    <td>NPTEL course on Natural Language Processing</td>
+                    <td>NPTEL</td>
+                    <td>Course Completion Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr Sujitha Juliet</td>
+                    <td>Asst Professor</td>
+                    <td>July 2020</td>
+                    <td>NPTEL course on Python for Data Science</td>
+                    <td>NPTEL</td>
+                    <td>Course Completion Certificate</td>
+                </tr>
+                <tr>
+                    <td>D. Narmadha</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan - Feb 2021</td>
+                    <td>NPTEL Elite Certificate for the Course "Python for DataScience"</td>
+                    <td>NPTEL</td>
+                    <td>Certificate</td>
+                </tr>
+                <tr>
+                    <td>Dr. G. Naveen Sundar</td>
+                    <td>Assistant Professor</td>
+                    <td>Jan - Feb 2021</td>
+                    <td>NPTEL Certificate for the Course "Python for DataScience"</td>
+                    <td>NPTEL</td>
+                    <td>Course Completion Certificate</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

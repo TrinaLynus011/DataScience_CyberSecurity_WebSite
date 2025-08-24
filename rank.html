@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Holders | Division of Data Science and Cyber Security</title>
+    <style>
+    :root {
+        --primary-color: #003366;
+        --secondary-color: #e6a612;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --success-color: #28a745;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    
+    header {
+        background-color: white;
+        color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo {
+        height: 50px;
+        width: auto;
+    }
+    
+    nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul li {
+        margin-left: 1rem;
+    }
+    
+    nav ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+    }
+    
+    nav ul li a:hover {
+        color: var(--secondary-color);
+    }
+
+    
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        
+
+    
+    /* Reduced Hero Section */
+    .hero {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #004080 100%);
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('https://www.karunya.edu/sites/default/files/2021-04/datascience-banner.jpg') center/cover no-repeat;
+        opacity: 0.15;
+        z-index: 0;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        opacity: 0.9;
+    }
+    
+    .event-details {
+        padding: 1rem 0;
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 auto;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .main-content {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    
+    .rank-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 2rem;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        border-radius: 8px;
+        overflow: hidden;
+        font-size: 1.1rem;
+    }
+    
+    .rank-table th {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.9rem;
+        text-align: left;
+        font-weight: 500;
+        font-size: 1.2rem;
+    }
+    
+    .rank-table td {
+        padding: 0.8rem 0.9rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .rank-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    
+    .rank-table tr:hover {
+        background-color: #f0f0f0;
+    }
+    footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+    
+    /* Tablet and Desktop Styles */
+    @media (min-width: 768px) {
+        .logo {
+            height: 60px;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            font-size: 1rem;
+        }
+        
+        .hero {
+            padding: 1.2rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .event-details {
+            font-size: 1.1rem;
+            padding: 1.2rem 0;
+        }
+        
+        .footer-content {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .rank-table {
+            font-size: 1.2rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+    
+    /* Large Desktop Styles */
+    @media (min-width: 1024px) {
+        .hero {
+            padding: 1.5rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        .main-content {
+            padding: 2.5rem 0;
+        }
+    }
+    
+    /* Mobile Navigation */
+    @media (max-width: 600px) {
+        .header-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        nav {
+            margin-top: 1rem;
+            width: 100%;
+        }
+        
+        nav ul {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0.3rem;
+        }
+        
+        .rank-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+            font-size: 1rem;
+        }
+        
+        .event-details {
+            font-size: 0.9rem;
+            padding: 0.8rem 0;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics</a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities</a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Research</a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+   
+
+    <main class="main-content container">
+        <h2 class="section-title">RANK HOLDERS
+            <BR>Academic Year 2024-2025</h2>
+        
+        <h3>IV Year</h3>
+        <table class="rank-table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Register Number</th>
+                    <th>Name</th>
+                    <th>SGPA</th>
+                    <th>CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>URK20CO1015</td>
+                    <td>HEMANTHKUMAR P B</td>
+                    <td>9.00</td>
+                    <td>9.29</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK20CO1023</td>
+                    <td>RONALD C DANIEL</td>
+                    <td>8.56</td>
+                    <td>8.01</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK20CO1044</td>
+                    <td>CH MADHURI MAHIMA</td>
+                    <td>8.39</td>
+                    <td>8.30</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>URK20AI1015</td>
+                    <td>RICHIE SURESH KOSHY</td>
+                    <td>9.37</td>
+                    <td>9.52</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK20AI1009</td>
+                    <td>CALEB STEPHEN</td>
+                    <td>9.29</td>
+                    <td>8.71</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK20AI1039</td>
+                    <td>JENISHA J</td>
+                    <td>8.96</td>
+                    <td>7.95</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>III Year</h3>
+        <table class="rank-table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Register Number</th>
+                    <th>Name</th>
+                    <th>SGPA</th>
+                    <th>CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>URK21CO3028</td>
+                    <td>RENUKA RAJPURIA</td>
+                    <td>9.60</td>
+                    <td>9.60</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK21CO3003</td>
+                    <td>NATHAN SHIBU JOHN</td>
+                    <td>9.12</td>
+                    <td>8.64</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK21CO3017</td>
+                    <td>SRI KAVI SELVAN S</td>
+                    <td>8.88</td>
+                    <td>8.99</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>URK21AI1028</td>
+                    <td>JUSTIN JOSEPH</td>
+                    <td>9.15</td>
+                    <td>8.78</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK21AI1022</td>
+                    <td>MOUNISH S</td>
+                    <td>8.87</td>
+                    <td>8.41</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK21AI1052</td>
+                    <td>NIKKITHA S</td>
+                    <td>8.86</td>
+                    <td>8.89</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>II Year</h3>
+        <table class="rank-table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Register Number</th>
+                    <th>Name</th>
+                    <th>SGPA</th>
+                    <th>CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>URK22CO2002</td>
+                    <td>BALAJI A</td>
+                    <td>8.56</td>
+                    <td>8.92</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK22CO3022</td>
+                    <td>A BENEDICT SIBOL</td>
+                    <td>8.16</td>
+                    <td>8.10</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK22CO2005</td>
+                    <td>RUMITHA S</td>
+                    <td>8.05</td>
+                    <td>8.06</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>URK22AI1119</td>
+                    <td>KIRAN MURALEEDHARAN</td>
+                    <td>9.26</td>
+                    <td>8.81</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK22AI1041</td>
+                    <td>MOHAMED RIYAZ A</td>
+                    <td>9.08</td>
+                    <td>9.22</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK22AI1032</td>
+                    <td>BENDAVID D WALKER C</td>
+                    <td>8.50</td>
+                    <td>8.61</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>I Year</h3>
+        <table class="rank-table">
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Register Number</th>
+                    <th>Name</th>
+                    <th>SGPA</th>
+                    <th>CGPA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>URK23CO2032</td>
+                    <td>LEAH TARA PAUL</td>
+                    <td>8.52</td>
+                    <td>8.52</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK23CO2013</td>
+                    <td>SANJAY S</td>
+                    <td>8.39</td>
+                    <td>8.39</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK23CO2025</td>
+                    <td>ADITHYA P</td>
+                    <td>8.39</td>
+                    <td>8.39</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>URK23AI1134</td>
+                    <td>C MANISHA</td>
+                    <td>9.71</td>
+                    <td>9.71</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>URK23AI1112</td>
+                    <td>FRANZ KINGSTEIN N</td>
+                    <td>9.60</td>
+                    <td>9.60</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>URK23AI1049</td>
+                    <td>GRACE MARIA SEBASTIAN</td>
+                    <td>9.57</td>
+                    <td>9.57</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

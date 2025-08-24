@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Data Science & Cyber Security | Karunya University</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base styles with beige and blue theme */
+        :root {
+            --primary-beige: #F5F5DC;
+            --dark-beige: #D2B48C;
+            --darker-beige: #B38B6D;
+            --accent-blue: #4682B4;
+            --dark-blue: #1E3F66;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --section-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .collaboration-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .collaboration-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .collaboration-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        
+        .collaboration-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .collaboration-content {
+            line-height: 1.8;
+        }
+        
+        .highlight-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .highlight-btn:hover {
+            background-color: #d69a10;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .collaboration-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .collaboration-logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background-color: white;
+            line-height: 1.6;
+            font-size: 18px;
+        }
+        
+        /* Compact header override */
+header {
+    background-color: white !important;
+    color: var(--primary-color) !important;
+    padding: 0.2rem 0 !important; /* smaller vertical padding */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 100 !important;
+}
+
+.header-content {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    min-height: 40px !important; /* smaller min height */
+}
+
+.logo-brand img {
+    height: 50px !important; /* reduced from 80px */
+    width: auto !important;
+}
+
+.brand-text h1 {
+    margin: 0 !important;
+    font-size: 1.6rem !important;
+    line-height: 1 !important;
+}
+
+.brand-text p {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+        
+        /* Navigation links below header */
+        .department-nav {
+            background-color: var(--dark-blue);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .collaboration-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .collaboration-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .collaboration-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        
+        .collaboration-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .collaboration-content {
+            line-height: 1.8;
+        }
+        
+        .highlight-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .highlight-btn:hover {
+            background-color: #d69a10;
+        }
+
+        
+        /* Scrolling text effect */
+        .scrolling-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scrollText 15s linear infinite;
+        }
+        
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Container and sections */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+        
+        section {
+            margin: 50px 0;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--section-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--primary-beige);
+        }
+        
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--dark-blue), var(--dark-beige));
+        }
+        
+        h2 {
+            color: var(--dark-blue);
+            border-bottom: 3px solid var(--dark-beige);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            color: var(--dark-blue);
+            margin: 20px 0 15px;
+            font-size: 1.6rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        /* Programs section */
+        .programs-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .program-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 6px solid var(--dark-blue);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .specialization {
+            margin-top: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--dark-blue);
+        }
+        
+        /* Courses grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .course-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--dark-blue);
+            transition: all 0.3s;
+        }
+        
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: var(--light-bg);
+        }
+        
+        /* Career prospects */
+        .careers-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .career-item {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-blue);
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .career-item:hover {
+            background: var(--dark-blue);
+            color: white;
+        }
+        
+        /* Infrastructure section */
+        .infrastructure-highlights {
+            margin-top: 30px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .highlight-icon {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+        }
+        
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .brand-text h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .logo-brand {
+                flex-direction: column;
+            }
+            
+            .logo-brand img {
+                margin-bottom: 15px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 6px 10px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            section {
+                padding: 30px;
+                margin: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-text h1 {
+                font-size: 1.5rem;
+            }
+            
+            .brand-text p {
+                font-size: 0.95rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.85rem;
+                padding: 4px 8px;
+            }
+            
+            .admission-banner {
+                font-size: 1rem;
+                padding: 12px;
+            }
+            
+            section {
+                padding: 25px 20px;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .careers-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+     <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="research.html">Research <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">PROGRAMS </h1>
+   
+
+            <div class="programs-container">
+                <!-- B.Tech AI & Data Science -->
+                <div class="program-card">
+                    <h3>B.Tech Artificial Intelligence and Data Science</h3>
+                    <p>Artificial Intelligence and Data Science Programme prepare students with the skills to perform intelligent data analysis which is a key component in numerous real-world applications. During the past ten years, data science has emerged as one of the most high-growth, dynamic, and lucrative careers in technology.</p>
+                    <p>This course aims at providing not only the core technologies such as artificial intelligence, data mining and data modelling but also gives intensive inputs in the areas of machine learning and big data analytics. By the end of this course, the students will gain cross-disciplinary skills across fields such as statistics, computer science, machine learning, and logic, data scientists and will have career opportunities in healthcare, business, eCommerce, social networking companies, climatology, biotechnology, genetics, and other important areas. The major focus of this programme is to equip students with statistical, mathematical reasoning, machine learning, knowledge discovery, and visualization skills.</p>
+                </div>
+                
+                <!-- B.Tech Computer Engineering -->
+                <div class="program-card">
+                    <h3>B.Tech Computer Engineering</h3>
+                    <p>Computer engineering blends computer science and emerging Technologies to further the advancements in digital technology, computer networking and computer systems. Computer engineering principles can be applied to several other purposes, including the development of integrated circuits, embedded systems, computer vision, computer systems architecture, and much more.</p>
+                    <p>In turn, computer engineers use their extensive knowledge of hardware and software design and computer programming to make computing platforms and applications more efficient and effective. This course aims at providing intensive information in areas of computer systems, distributed systems, internet of things, Robotics, Computer networks and Wireless networks & communication. By studying this course, the students will have an opportunity to learn tools and techniques to work on the related fields such as robotics, cyber security, and computer-aided design systems.</p>
+                    
+                    <div class="specialization">
+                        <h4>Specializations:</h4>
+                        <ul>
+                            <li>B.Tech Computer Engineering (Specialization in cyber security)</li>
+                        </ul>
+                        <p><strong>Duration:</strong> 4 Years</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses">
+            <h2>Important Courses</h2>
+            <div class="courses-grid">
+                <div class="course-item">Blockchain Technologies and Applications</div>
+                <div class="course-item">Deep Learning</div>
+                <div class="course-item">Cloud Computing for Data Analytics</div>
+                <div class="course-item">Reinforcement Learning</div>
+                <div class="course-item">Penetration Testing and Vulnerability Analysis</div>
+                <div class="course-item">Feature Engineering</div>
+                <div class="course-item">Natural Language Processing</div>
+                <div class="course-item">Full Stack Development</div>
+                <div class="course-item">Machine Learning Techniques</div>
+                <div class="course-item">Zero Trust Architecture</div>
+                <div class="course-item">Generative AI</div>
+                <div class="course-item">Federated Learning</div>
+                <div class="course-item">Quantum Machine Learning</div>
+                <div class="course-item">Data Visualization</div>
+                <div class="course-item">Cognitive Computing</div>
+                <div class="course-item">Optimization Methodologies</div>
+                <div class="course-item">Principles of Cyber Security</div>
+                <div class="course-item">Agile Software Development</div>
+                <div class="course-item">Information Retrieval and Text Analysis</div>
+                <div class="course-item">Digital Forensics</div>
+                <div class="course-item">Data Acquisition and Processing</div>
+                <div class="course-item">Big Data Platforms</div>
+                <div class="course-item">Cyber Forensics</div>
+                <div class="course-item">MLOps</div>
+                <div class="course-item">Computer Vision</div>
+            </div>
+        </section>
+
+        <!-- Career Prospects Section -->
+        <section id="careers">
+            <h2>Career Prospects</h2>
+            <div class="careers-list">
+                <div class="career-item">Data Scientist</div>
+                <div class="career-item">Data Engineer</div>
+                <div class="career-item">Data Scientist Manager</div>
+                <div class="career-item">Machine Learning Engineer</div>
+                <div class="career-item">AI Researcher</div>
+            </div>
+        </section>
+
+        <!-- Infrastructure Section -->
+        <section id="infrastructure">
+            <h2>Infrastructure</h2>
+            <p>Artificial Intelligence being the most sought-after skill in the industry, Karunya is partnering with Nvidia, the technology leader in AI computing. As a part of this initiative, Karunya has procured Nvidia DGX Station, with four Nvidia Tesla V100 Tensor Core GPUs each with 32 GB memory and Intel Xeon processor with 20 cores, the workstation delivers 500 teraFLOPS of AI power.</p>
+            <p>The DGX Station can accelerate machine learning training up to 215X faster and carry out deeper exploration in the fields of Data Science, Machine Learning and Deep Learning. Also the department has signed an MoU with IBM India Pvt Ltd. The IBM Big Data Software Centre of Excellence is an initiative with a vision to enable the students and faculty in higher education to gain the relevant skills in Big Data Analytics, experiential learning and to make them adept with latest Big Data technology and tools.</p>
+            
+            <div class="infrastructure-highlights">
+                <h3>Current Research Projects:</h3>
+                <ul>
+                    <li>Bio-medical text mining</li>
+                    <li>Analytics in surveillance videos</li>
+                    <li>Data Analytics on Social Media data</li>
+                    <li>Drug Analysis</li>
+                    <li>Predictive Analytics for cancer</li>
+                    <li>Fraudulent data Analytics</li>
+                    <li>Traffic data analytics</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for functionality -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scrolling text animation
+        const scrollingText = document.querySelector('.scrolling-text');
+        if (scrollingText) {
+            scrollingText.innerHTML = scrollingText.innerHTML.repeat(3);
+        }
+    </script>
+</body>
+</html>

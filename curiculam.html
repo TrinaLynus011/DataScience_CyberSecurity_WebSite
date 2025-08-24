@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum - Division of Data Science and Cyber Security</title>
+    <style>
+    :root {
+        --primary-color: #003366;
+        --secondary-color: #e6a612;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --success-color: #28a745;
+    }
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    
+    /* Header */
+    header {
+        background-color: white;
+        color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .logo-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .logo-brand img {
+        height: 50px;
+        width: auto;
+    }
+    
+    .brand-text h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        line-height: 1.2;
+    }
+    
+    .brand-text p {
+        font-size: 0.9rem;
+        margin-top: 5px;
+        color: #666;
+    }
+    
+    /* Navigation */
+    .department-nav {
+        background-color: var(--primary-color);
+        padding: 15px 0;
+    }
+    
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 15px;
+    }
+    
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 4px;
+        transition: all 0.3s;
+        font-size: 0.95rem;
+    }
+    
+    .nav-links a:hover {
+        background-color: rgba(255,255,255,0.2);
+    }
+    
+    /* Main Content */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 2rem auto;
+    }
+    
+    section {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    
+    h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        color: var(--primary-color);
+        margin: 20px 0 15px;
+        font-size: 1.3rem;
+    }
+    
+    p {
+        margin-bottom: 15px;
+        line-height: 1.8;
+    }
+    
+    .image-container {
+        margin: 30px 0;
+        text-align: center;
+    }
+    
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .image-container p {
+        margin-top: 10px;
+        font-style: italic;
+        color: #666;
+    }
+    
+    /* Footer */
+    footer {
+        background: linear-gradient(135deg, #003366, #0056b3);
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+    
+    .footer-container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .footer-section h3 {
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-section ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+        font-size: 0.9rem;
+    }
+    
+    .footer-section ul li a:hover {
+        color: var(--secondary-color);
+    }
+    
+    .contact-info {
+        font-size: 0.9rem;
+    }
+    
+    .contact-info p {
+        margin: 0.5rem 0;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin: 1.5rem 0;
+    }
+    
+    .social-links a {
+        color: white;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+        background-color: rgba(255,255,255,0.2);
+        color: var(--secondary-color);
+    }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    /* Responsive Design */
+    @media (min-width: 768px) {
+        .logo-brand img {
+            height: 60px;
+        }
+        
+        .brand-text h1 {
+            font-size: 1.8rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .header-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .logo-brand {
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        
+        .nav-links {
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+        }
+        
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+
+     :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .collaboration-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .collaboration-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .collaboration-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+        
+        .collaboration-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .collaboration-content {
+            line-height: 1.8;
+        }
+        
+        .highlight-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .highlight-btn:hover {
+            background-color: #d69a10;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+            
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .collaboration-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .collaboration-logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+        
+</style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png" alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="research.html">Research <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">CURICULAM</h1>        <section>
+            <p>The curriculum is designed based on Program Educational Objectives (PEOs), Program Outcomes (POs) and also adopting the guidelines of All India Council for Technical Education (AICTE). The curriculum and syllabi are discussed in Curriculum Development Cell (CDC) meetings along with student representatives. The recommendations of CDC are presented in the BoS comprising experts from premier institutes, industries and alumni for scrutiny. The recommendations of BoS are placed in Academic Council (AC) / Board of Management (BoM) for approval. Approved curriculum and syllabi are implemented and documented as Academic Hand Books.</p>
+
+            <p>Continuous reviews are obtained from the stakeholders, industry, academia, external experts from other institutions and faculty. The feedback is analyzed and the required updates are incorporated if necessary. Continuous review process provides a detailed insight on the process of designing/ updating a Course.</p>
+        </section>
+
+        <section>
+            <div class="image-container">
+                <img src="https://www.karunya.edu/sites/default/files/img/cst/curriculum/curriculum,P20design,P20process.png.pagespeed.ce.K_lx1LTNes.png" alt="Curriculum Design Process">
+                <p>Curriculum Design Process</p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://www.karunya.edu/sites/default/files/img/cst/curriculum/review,P20process.png.pagespeed.ce.SX91zrhSrh.png" alt="Review Process">
+                <p>Review Process</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Level of Program Curriculum</h2>
+            <p>The divisions ensures adherence to the guidelines received from statutory regulatory bodies like UGC, AICTE on credit distribution for PG curriculum, while developing and/or restructuring it from time to time. The Courses offered in the curriculum are on par with the top national and international Institutions. A 360O feedback approach is practiced and input from stakeholders such as industry experts, employers, academia, parents, students, and alumni is obtained to identify and offer Courses on emerging technologies addressing the societal requirements. Involvement of industrial experts in BoS, feedback from alumni, formal and informal discussions with stakeholders ensure bridging any gap between the curriculum and requirement of industries, and recruiters. Courses are also offered in collaboration with the industries such as IBM, ORACLE, Infosys, SUSE, CISCO and EMURGO.</p>
+
+            <h3>Overall Quality:</h3>
+            <p>Courses on current technologies are identified from eminent National and international institutions and included in the curriculum as core and softcore Courses (Professional electives). More than 100 professional elective Courses have been identified on trending technologies. These Courses inspire the students to carry out research projects and publish their work in reputed conferences and refereed journals.</p>
+        </section>
+
+        <section>
+            <h2>I. Programs and Credits</h2>
+            <div class="image-container">
+                <img src="https://karunya.edu/sites/default/files/img/dscs/curriculum/ProgramsandCredits.jpg" alt="Programs and Credits">
+                <p>Courses & Credit Distribution (B.Tech. Programs) - 2021 -2022 Batch onwards</p>
+                <img src="https://karunya.edu/sites/default/files/img/dscs/curriculum/CoursesandCreditDistribution.jpg" alt="Courses and Credit Distribution">
+            </div>
+        </section>
+
+        <section>
+            <h2>II. Constitution of Curriculum Cells</h2>
+            <p>The Divisional Curriculum Development Cells are constituted as under for planning and updating of syllabus to be presented to the Board of Studies.</p>
+
+            <h3>a) Divisional Curriculum Development Cell</h3>
+            <p>Curriculum Development Cell is a standing internal committee with all the internal members of the BoS and AC and any other faculty co-opted / nominated by the Dean of School / HoD.</p>
+            
+            <p><strong>Chairman</strong>: Head of the Divisions</p>
+            <p><strong>Secretary</strong>: Faculty nominated by HoD</p>
+
+            <h3>b) Board of Studies</h3>
+            <p><strong>Chairman</strong>: Head of the Divisions</p>
+            <p><strong>Internal Members</strong>: All Professors, All Associate Professors, Assistant Professors nominated by the HoD</p>
+            <p><strong>External Members</strong>: One member each one from Academia, Industry and Alumni from the constituted Board.</p>
+            <p><strong>Secretary</strong>: Faculty member nominated by the HoD.</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                        Karunya Institute of Technology and Sciences,<br>
+                        (Deemed to be University),<br>
+                        Karunya Nagar,<br>
+                        Coimbatore - 641 114,<br>
+                        Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

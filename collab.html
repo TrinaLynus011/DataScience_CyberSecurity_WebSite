@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborations | Division of Data Science and Cyber Security | Karunya Institute of Technology and Sciences
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #e6a612;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --success-color: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 4px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--primary-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .collaboration-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .collaboration-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .collaboration-logo {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .collaboration-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .collaboration-content {
+            line-height: 1.8;
+        }
+
+        .highlight-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .highlight-btn:hover {
+            background-color: #d69a10;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #003366, #0056b3);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-info {
+            font-size: 0.9rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            .logo {
+                height: 60px;
+            }
+
+            nav ul li {
+                margin-left: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 600px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .collaboration-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .collaboration-logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="https://www.karunya.edu/sites/default/files/logo.png"
+                alt="Karunya Institute of Technology and Sciences" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Academics</a>
+                            <div class="dropdown-content">
+                                <a href="programs.html">Programs</a>
+                                <a href="curiculam.html">Curriculum</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Facilities</a>
+                            <div class="dropdown-content">
+                                <a href="library.html">Library</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#">Research</a>
+                            <div class="dropdown-content">
+                                <a href="projects.html">Projects</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="placement.html">Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 class="section-title">COLLABORATIONS</h1>
+
+            <div class="collaboration-card">
+                <div class="collaboration-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1200px-Cisco_logo_blue_2016.svg.png"
+                        alt="CISCO Logo" class="collaboration-logo">
+                    <h2 class="collaboration-title">CISCO Systems, INC</h2>
+                </div>
+                <div class="collaboration-content">
+                    <p>The Division of Computer Science and Engineering had signed MoU with CISCO Systems, Bangalore on
+                        5-11-2007. The CISCO centre of excellence on Advanced Networking available in the division
+                        provides world class networking infrastructure. The faculty members have been constantly trained
+                        by CISCO Networking Academy, to offer the latest industry relevant networking curriculum. The
+                        Division is offering the certification course CCNA (Cisco Certified Network Associate) to the
+                        students since 2007. The course provides practical hands-on experience to the students on
+                        networking concepts during the 110 hours of the course.</p>
+
+                    <p>As per the CISCO requirements, the CCNA course is divided into following four modules:</p>
+                    <ul>
+                        <li>Networking fundamentals</li>
+                        <li>Routing protocols and concepts</li>
+                        <li>LAN switching and wireless</li>
+                        <li>Accessing the WAN</li>
+                    </ul>
+
+                    <p>The CISCO Centre of Excellence is equipped with sophisticated CISCO hardware like routers,
+                        switches, wireless adapter, cables and PCs to effectively deliver the CISCO CCNA curriculum.
+                        Packet tracer software is also installed in computers to simulate the various network
+                        configurations and provide a better understanding on the networking concepts. CISCO NetRiders, a
+                        National Level competition and various divisional level competitions related to networking are
+                        conducted regularly with the equipments available in this laboratory. Once in a year students
+                        from rural schools are invited and the equipments in the laboratory are demonstrated to motivate
+                        them to pursue their career in the networking domain.</p>
+                </div>
+            </div>
+
+            <div class="collaboration-card">
+                <div class="collaboration-header">
+                    <img src="https://karunya.edu/sites/default/files/img/cst/centers-of-excellence/suse-logo.png"
+                        alt="SUSE Logo" class="collaboration-logo">
+                    <h2 class="collaboration-title">SUSE Software Solutions Ireland Limited</h2>
+                </div>
+                <div class="collaboration-content">
+                    <h3>SUSE Center of Excellence for Cloud Computing</h3>
+
+                    <p>Divisions of Computer Science and Engineering signed an MoA with the SUSE Academic program, SUSE
+                        Software Solutions, Ireland, on 29th November 2019.</p>
+
+                    <p>The divisions of CSE has established a relationship and signed the first agreement with
+                        Novell(SUSE was a Partner) in the year 2010. Because of the tremendous academic support and
+                        guidance by Novell, the CSE division started offering SUSE Certified Administrator (SCA) in
+                        Enterprise Linux certification program in 2010. Based on the fruitful partnership in the past
+                        years, the relationship was further strengthened as Novell started supporting our M.Tech program
+                        in the year 2014. Besides, a Center of Excellence for Cloud Computing was established in KITS
+                        premises.</p>
+
+                    <p>This new strategic partnership with SUSE enables us to take the teaching and learning process on
+                        par with the industry demands:</p>
+
+                    <ul>
+                        <li>Endorse and support B.Tech - Computer Science and Engineering and M.Tech Computer Science
+                            and Engineering.</li>
+                        <li>Empowered to offer Linux Certification training to the students and faulty by a certified
+                            university faculty/staff.</li>
+                        <li>Support placements in SUSE's Academic Program partner's page.</li>
+                        <li>Continuous support to run the center of excellence with necessary branding, logo, and
+                            signage</li>
+                        <li>SUSE's Coimbatore partner trainings in the center of excellence</li>
+                        <li>Karunya students and faculty can gain access to online SUSE Academy at free of cost.</li>
+                    </ul>
+
+                    <p>Additional benefits include:</p>
+                    <ul>
+                        <li>Training: Materials for certified Linux and other courses, both for trainers and students.
+                        </li>
+                        <li>Curriculum: Campus-use of these materials for student education by faculty staff.</li>
+                        <li>Use SUSE for education: Use SUSE products for free for educational or lab purposes.</li>
+                        <li>Development Resources: Access to tools and products for use in the lab, software
+                            development, or other education settings.</li>
+                        <li>Support: Access to knowledge base, forums and technical support.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collaboration-card">
+                <div class="collaboration-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/1200px-IBM_logo.svg.png"
+                        alt="IBM Logo" class="collaboration-logo">
+                    <h2 class="collaboration-title">IBM India Private Ltd.</h2>
+                </div>
+                <div class="collaboration-content">
+                    <h3>IBM Big Data software Centre of Excellence</h3>
+
+                    <p>The IBM Big Data Software Centre of Excellence is an initiative with a vision to enable the
+                        students and faculty in higher education to gain the relevant skills in Big Data Analytics,
+                        experiential learning and to make them adept with latest Big Data technology and tools. Karunya
+                        Institute of Technology and Sciences signed an MoU with IBM India Pvt Ltd on August 2015. The
+                        objective of this collaboration is to have a number of students graduating from the institution
+                        skilled in industry requirements, using best-in-class IBM Software in Big Data Analytics.</p>
+
+                    <p>Researchers in this center, including faculty and scholars are involved in research projects on
+                        Bio-medical text mining, Analytics in surveillance videos, Data Analytics on Social Media data,
+                        Drug Analysis, Predictive Analytics for cancer, fraudulent data Analytics, and traffic data
+                        analytics.</p>
+
+                    <p>The IBM CoE offers:</p>
+                    <ul>
+                        <li>Industry certified courses</li>
+                        <li>Internships and Entrepreneurship support from leading Industries.</li>
+                        <li>FDP for faculty members, Workshops seminars, Webinars for students</li>
+                        <li>Miniprojects, Half Semester projects and full semester projects</li>
+                        <li>Specialized curriculum on Big Data Technologies created by Karunya Institute of Technology &
+                            Sciences in collaboration with the Industry Experts</li>
+                    </ul>
+
+                    <p>IBM Specialized Big Data Lab is equipped with:</p>
+                    <ul>
+                        <li>IBM Big Data Software - Infosphere BigInsight, Datastage, Streams</li>
+                        <li>IBM Datawarehouse for analytics -IBM Netezza.</li>
+                        <li>Industry mentors for Project and career support</li>
+                        <li>Project Competitions and Hackathons</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collaboration-card">
+                <div class="collaboration-header">
+                    <img src="https://karunya.edu/sites/default/files/img/cst/centers-of-excellence/emurgo-academy.jpg"
+                        alt="Emurgo Logo" class="collaboration-logo">
+                    <h2 class="collaboration-title">Emurgo Learning Solutions Private Limited</h2>
+                </div>
+                <div class="collaboration-content">
+                    <h3>MoA with Emurgo and Certification Course on Blockchain</h3>
+
+                    <p>On November 25, 2019, Karunya Institute of Technology and Sciences has signed MoA with EMURGO
+                        Academy, an education arm of EMURGO.</p>
+
+                    <p>Objective:</p>
+                    <p>To provide the students of KITS with</p>
+                    <ul>
+                        <li>Training in blockchain technology through certification course</li>
+                        <li>Opportunity to do an internship with EMURGO</li>
+                        <li>Opportunities to work on live projects</li>
+                        <li>Exposure to international forums</li>
+                        <li>To assist in Curriculum development on Blockchain related courses</li>
+                    </ul>
+
+                    <h4>Certification Course on</h4>
+                    <p><strong>Title of the course:</strong> Foundation of Blockchain</p>
+                    <p><strong>Objective of the course:</strong> This program provides an in-depth, foundational
+                        understanding of the pillars of blockchain technology. The learner will learn to critically
+                        evaluate the tools, common practices and understand the processes powering this disruptive
+                        technology</p>
+                    <p><strong>Certificate:</strong> EMURGO Digital Badge</p>
+                    <p><strong>Course Content:</strong> Blockchain – What/Why/future/Transactions/Types, Bitcoin,
+                        Cryptocurrency, Consensus Algorithm, DApp, Smart contracts, assessment</p>
+                    <p><strong>Industry Demand:</strong> Blockchain is the leading technology of the era, having its
+                        demand not only in Banking and Financial services, but also in Healthcare, Media and
+                        Entertainment, Retail and Customer Goods, Travel and Transportation, Government, etc.</p>
+
+                    <p><strong>Outcome:</strong></p>
+                    <p>In the odd semester of the academic year 2019 – 20, students of II and III year CSE have
+                        successfully completed the course.</p>
+                    <p>Two of them, Mr. Surapaneni Arun Sai (URK17CS019) and Ms. Lathangi Vemulapalli (URK18CS026) have
+                        been offered Internship at Emurgo, which was from 11/09/2020 to 18/10/2020. Both of them
+                        completed with Practical knowledge and Proficiency in Ethereum Blockchain protocol and Solidity
+                        programming, Truffle framework and Web3 with React front-end development</p>
+                </div>
+            </div>
+
+            <div class="collaboration-card">
+                <div class="collaboration-header">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Fortinet_logo.svg/1200px-Fortinet_logo.svg.png"
+                        alt="Fortinet Logo" class="collaboration-logo">
+                    <h2 class="collaboration-title">Fortinet Network Security Academy</h2>
+                </div>
+                <div class="collaboration-content">
+                    <p>Karunya Institute of Technology and Sciences has signed an agreement with Fortinet Network
+                        Security Academy.</p>
+
+                    <ul>
+                        <li>The Agreement enables students to get training and certifications at free of cost.</li>
+                        <li>Fortinet NSE certification curricula prepares the students for a career in cyber security.
+                        </li>
+                        <li>Enables Fortinet certification through lecture and hands-on practical application. Academies
+                            have access to VM licenses necessary to perform lab exercises.</li>
+                        <li>Fortinet provides student/participant Pearson Vue exam vouchers to achieve an industry
+                            recognized network security certification.</li>
+                    </ul>
+
+                    <p>Further details can be obtained from Dr. Jaspher Katherine/Prof. Vinodh Ewards, Division of
+                        Computer Science and Engineering, KITS.</p>
+
+                    <a href="#" class="highlight-btn">CLICK HERE</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Karunya Institutions</h3>
+                    <ul>
+                        <li><a href="#">Karunya Christian School</a></li>
+                        <li><a href="#">Evangeline Matriculation Higher Secondary School</a></li>
+                        <li><a href="#">Karunya Hospitals</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Centre for Extension Activities</a></li>
+                        <li><a href="#">IQAC</a></li>
+                        <li><a href="#">IPR Cell</a></li>
+                        <li><a href="#">International Affairs</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Mandatory Disclosures</h3>
+                    <ul>
+                        <li><a href="#">AICTE Approval Orders</a></li>
+                        <li><a href="#">NAAC SSR</a></li>
+                        <li><a href="#">NIRF</a></li>
+                        <li><a href="#">ARIIA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <div class="contact-info">
+                        <p><strong>Toll Free:</strong> 1800 889 9888</p>
+                        <p><strong>Toll Free:</strong> 1800 425 4300</p>
+                        <p><strong>Email:</strong> info@karunya.edu</p>
+                        <p><strong>Address:</strong><br>
+                            Karunya Institute of Technology and Sciences,<br>
+                            (Deemed to be University),<br>
+                            Karunya Nagar,<br>
+                            Coimbatore - 641 114,<br>
+                            Tamil Nadu, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                ©2020 -2025. Karunya Institute of Technology and Sciences. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

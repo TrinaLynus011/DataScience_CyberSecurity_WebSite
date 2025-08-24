@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karunya Institute of Technology and Sciences - Admissions 2025-2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: rgba(30, 60, 114, 0.95);
+            width: 440px;
+            padding: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            /* Allows text to move to next line on small screens */
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #222;
+            margin: 0;
+            white-space: normal;
+            /* Breaks into multiple lines if needed */
+        }
+
+        .logo-text p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+
+        .logo-section {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        .header-logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .header-text {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #003366;
+        }
+
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: #2a5298;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            position: relative;
+        }
+
+        .logo::before {
+            content: "🎓";
+            font-size: 30px;
+        }
+
+        .logo-text h2 {
+            color: #e74c3c;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .logo-text p {
+            color: #333;
+            font-size: 11px;
+            line-height: 1.3;
+            margin: 1px 0;
+        }
+
+        .admissions-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .candidate-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .candidate-icon {
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .candidate-icon::before {
+            content: "👨‍🎓";
+            font-size: 40px;
+        }
+
+        .candidate-section h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .fee-info {
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .candidate-section p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .foreign-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .foreign-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .note-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .note-section h4 {
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+
+        .note-section p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .contact-info {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 0;
+            position: relative;
+        }
+
+        .form-header {
+            background: white;
+            padding: 30px 40px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .form-header h1 {
+            color: #2a5298;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .login-link {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #2a5298;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .form-content {
+            padding: 40px;
+            background: white;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* Tab Buttons */
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.indian {
+            background: #2a5298;
+            color: white;
+        }
+
+        .tab-btn.foreign {
+            background: #e9ecef;
+            color: #666;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .indian-flag {
+            background: linear-gradient(to bottom, #ff9933 33%, white 33%, white 66%, #138808 66%);
+        }
+
+        .world-flag {
+            background: linear-gradient(45deg, #00f 25%, #0f0 25%, #0f0 50%, #f00 50%, #f00 75%, #ff0 75%);
+        }
+
+        /* Form Styles */
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            flex: 1;
+        }
+
+        .form-group.full-width {
+            flex: none;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2a5298;
+            box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #adb5bd;
+        }
+
+        .mobile-row {
+            display: flex;
+            gap: 15px;
+            align-items: end;
+        }
+
+        .mobile-code {
+            width: 120px;
+        }
+
+        .mobile-number {
+            flex: 1;
+        }
+
+        /* Checkbox and Consent */
+        .consent-section {
+            margin: 30px 0;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .consent-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* reCAPTCHA placeholder */
+        .recaptcha-box {
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 20px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .recaptcha-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ccc;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .recaptcha-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .recaptcha-logo {
+            margin-left: auto;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Action Buttons */
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #2a5298;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3c72;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            background: #f8f9fa;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            left:65%;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 200px;
+            left:65%;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 40px;
+            position: relative;
+        }
+
+        .step-icon.step1 {
+            background: #e3f2fd;
+        }
+
+        .step-icon.step2 {
+            background: #fff3e0;
+        }
+
+        .step-icon.step3 {
+            background: #f3e5f5;
+        }
+
+        .step-icon.step4 {
+            background: #e8f5e8;
+        }
+
+        .step-icon.step5 {
+            background: #fce4ec;
+        }
+
+        .step h3 {
+            color: #2a5298;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .arrow {
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #2a5298;
+            font-size: 24px;
+        }
+
+        .step:last-child .arrow {
+            display: none;
+        }
+
+        /* EduServe Logo */
+        .eduserve-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .form-content {
+                padding: 20px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .mobile-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .mobile-code {
+                width: 100%;
+            }
+
+            .process-steps {
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .step {
+                max-width: 150px;
+            }
+
+            .arrow {
+                display: none;
+            }
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <center>
+                    <img src="logo.png" alt="Karunya Logo" class="logo-img">
+                    <div class="logo-text">
+                        <div class="header-text">Admissions 2025 - 2026</div>
+
+                    </div>
+            </div>
+            </center>
+
+
+            <div class="candidate-section">
+                <h3>Indian Candidate</h3>
+                <div class="fee-info">Application Fees: Rs 1000 (For all Programs)</div>
+                <p>Apply here for all UG and PG programs.</p>
+                <p>KMAT/National Level Eligibility Test is Mandatory for admission into MBA program.</p>
+            </div>
+
+            <div class="foreign-section">
+                <h3>Foreign / NRI Candidate</h3>
+                <div class="fee-info">Application Fee: USD 250 *</div>
+            </div>
+
+            <div class="note-section">
+                <h4>Note:</h4>
+                <p>Karunya Institute of Technology and Sciences has not appointed any Agent or Third-Party Client for
+                    securing admission in any program. Applicants are hereby requested to contact either <span
+                        class="contact-info">1800 889 9888</span> (or) <span class="contact-info">1800 425 4300</span> /
+                    <span class="contact-info">admissions@karunya.edu</span> (or) <span class="contact-info">Admission
+                        office number - 0422 2614440</span> for any admission-related queries.</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="form-header">
+                <h1>Application Form 2025 - 2026</h1>
+                <p>[For admission into all programs]</p>
+                <div class="login-link">
+                    Already Registered? <a href="#" onclick="showLogin()">Login</a>
+                </div>
+            </div>
+
+            <!-- Login Form (Initially Hidden) -->
+            <div id="loginForm" class="form-content hidden">
+                <h2 style="margin-bottom: 30px; color: #2a5298;">Login to Your Account</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email ID / Application Number</label>
+                            <input type="text" placeholder="Enter your email or application number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="Enter your password" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="button" class="btn btn-secondary" onclick="showRegistration()">Back to
+                            Registration</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Registration Form -->
+            <div id="registrationForm" class="form-content">
+                <div class="tab-buttons">
+                    <button class="tab-btn indian" onclick="switchTab('indian')">
+                        <span class="flag-icon indian-flag"></span>
+                        Indian Applicant
+                    </button>
+                    <button class="tab-btn foreign" onclick="switchTab('foreign')">
+                        <span class="flag-icon world-flag"></span>
+                        Foreign / NRI Applicant
+                    </button>
+                </div>
+
+                <form id="applicationForm" onsubmit="handleRegistration(event)">
+                    <!-- Basic Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Applicant Name <span class="required">*</span></label>
+                            <input type="text" name="applicantName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender <span class="required">*</span></label>
+                            <select name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Mobile Code <span class="required">*</span></label>
+                            <select name="mobileCode" required>
+                                <option value="">Select...</option>
+                                <option value="+91">+91 (India)</option>
+                                <option value="+1">+1 (USA)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+971">+971 (UAE)</option>
+                                <option value="+65">+65 (Singapore)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Applicant's WhatsApp No <span class="required">*</span></label>
+                            <input type="tel" name="whatsappNo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Code <span class="required">*</span></label>
+                            <select name="confirmMobileCode" required>
+                                <option value="">Select...</option>
+                                <option value="+91">+91 (India)</option>
+                                <option value="+1">+1 (USA)</option>
+                                <option value="+44">+44 (UK)</option>
+                                <option value="+971">+971 (UAE)</option>
+                                <option value="+65">+65 (Singapore)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm WhatsApp No <span class="required">*</span></label>
+                            <input type="tel" name="confirmWhatsappNo" required>
+                        </div>
+                    </div>
+
+                    <!-- Email Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Applicant's Email ID <span class="required">*</span></label>
+                            <input type="email" name="emailId" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Email ID <span class="required">*</span></label>
+                            <input type="email" name="confirmEmailId" required>
+                        </div>
+                    </div>
+
+                    <!-- Password Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Create Password <span class="required">*</span></label>
+                            <input type="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password <span class="required">*</span></label>
+                            <input type="password" name="confirmPassword" required>
+                        </div>
+                    </div>
+
+                    <!-- Location Information -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Country <span class="required">*</span></label>
+                            <select name="country" onchange="updateStates()" required>
+                                <option value="">Select...</option>
+                                <option value="india">India</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="uae">UAE</option>
+                                <option value="singapore">Singapore</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Pincode / Zipcode</label>
+                            <input type="text" name="pincode">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>State / Providence</label>
+                            <input type="text" name="state" placeholder="State / Providence">
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="city" placeholder="City">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Nationality <span class="required">*</span></label>
+                            <select name="nationality" required>
+                                <option value="">Select Nationality</option>
+                                <option value="indian">Indian</option>
+                                <option value="american">American</option>
+                                <option value="british">British</option>
+                                <option value="canadian">Canadian</option>
+                                <option value="australian">Australian</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Consent Section -->
+                    <div class="consent-section">
+                        <div class="consent-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent" class="consent-text">
+                                I give my consent to receive Emails / Phone Calls / SMS / WhatsApp messages from Karunya
+                                Institute of Technology and Sciences (KITS) with regard to admissions.
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- reCAPTCHA -->
+                    <div class="recaptcha-box" onclick="toggleRecaptcha()">
+                        <div class="recaptcha-checkbox" id="recaptchaBox"></div>
+                        <span class="recaptcha-text">I'm not a robot</span>
+                        <div class="recaptcha-logo">
+                            reCAPTCHA<br>
+                            <small>Privacy - Terms</small>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear All</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Steps Section -->
+    <div class="process-steps">
+        <div class="step">
+            <div class="step-icon step1">👤<div class="arrow">→</div>
+            </div>
+            <h3>Register Yourself</h3>
+        </div>
+        <div class="step">
+            <div class="step-icon step2">📧<div class="arrow">→</div>
+            </div>
+            <h3>Verify Email/OTP</h3>
+        </div>
+        <div class="step">
+            <div class="step-icon step3">📝<div class="arrow">→</div>
+            </div>
+            <h3>Fill Application Form Online</h3>
+        </div>
+        <div class="step">
+            <div class="step-icon step4">📁<div class="arrow">→</div>
+            </div>
+            <h3>Upload Documents</h3>
+        </div>
+        <div class="step">
+            <div class="step-icon step5">💳</div>
+            <h3>Pay</h3>
+        </div>
+    </div>
+
+    <script>
+        let recaptchaVerified = false;
+        let currentTab = 'indian';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            const indianBtn = document.querySelector('.tab-btn.indian');
+            const foreignBtn = document.querySelector('.tab-btn.foreign');
+
+            if (tab === 'indian') {
+                indianBtn.classList.add('indian');
+                indianBtn.classList.remove('foreign');
+                indianBtn.style.background = '#2a5298';
+                indianBtn.style.color = 'white';
+
+                foreignBtn.classList.add('foreign');
+                foreignBtn.classList.remove('indian');
+                foreignBtn.style.background = '#e9ecef';
+                foreignBtn.style.color = '#666';
+            } else {
+                foreignBtn.classList.add('indian');
+                foreignBtn.classList.remove('foreign');
+                foreignBtn.style.background = '#2a5298';
+                foreignBtn.style.color = 'white';
+
+                indianBtn.classList.add('foreign');
+                indianBtn.classList.remove('indian');
+                indianBtn.style.background = '#e9ecef';
+                indianBtn.style.color = '#666';
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('registrationForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+
+        function showRegistration() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registrationForm').classList.remove('hidden');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Login functionality would redirect to student dashboard.\nThis is a demo - actual authentication would be implemented on the backend.');
+        }
+
+        function handleRegistration(event) {
+            event.preventDefault();
+
+            if (!recaptchaVerified) {
+                alert('Please verify that you are not a robot.');
+                return;
+            }
+
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            // Validate passwords match
+            if (data.password !== data.confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Validate emails match
+            if (data.emailId !== data.confirmEmailId) {
+                alert('Email addresses do not match!');
+                return;
+            }
+
+            // Validate WhatsApp numbers match
+            if (data.whatsappNo !== data.confirmWhatsappNo) {
+                alert('WhatsApp numbers do not match!');
+                return;
+            }
+
+            // Simulate registration process
+            alert(`Registration successful!\n\nApplication Type: ${currentTab === 'indian' ? 'Indian' : 'Foreign/NRI'} Applicant\nName: ${data.applicantName}\nEmail: ${data.emailId}\n\nA verification email has been sent to your email address.\nPlease check your email to verify your account.`);
+
+            // In real implementation, this would redirect to email verification page
+            console.log('Registration data:', data);
+        }
+
+        function toggleRecaptcha() {
+            const box = document.getElementById('recaptchaBox');
+            if (!recaptchaVerified) {
+                box.innerHTML = '✓';
+                box.style.background = '#2a5298';
+                box.style.color = 'white';
+                box.style.border = '2px solid #2a5298';
+                recaptchaVerified = true;
+            } else {
+                box.innerHTML = '';
+                box.style.background = 'white';
+                box.style.color = '#333';
+                box.style.border = '2px solid #ccc';
+                recaptchaVerified = false;
+            }
+        }
+
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all form data?')) {
+                document.getElementById('applicationForm').reset();
+                recaptchaVerified = false;
+                const box = document.getElementById('recaptchaBox');
+                box.innerHTML = '';
+                box.style.background = 'white';
+                box.style.color = '#333';
+                box.style.border = '2px solid #ccc';
+            }
+        }
+
+        function updateStates() {
+            // This function would populate states based on selected country
+            // For demo purposes, we're keeping it simple
+            console.log('Country selection changed - states would be updated accordingly');
+        }
+
+        // Initialize the form
+        document.addEventListener('DOMContentLoaded', function () {
+            switchTab('indian');
+        });
+    </script>
+</body>
+
+</html>
